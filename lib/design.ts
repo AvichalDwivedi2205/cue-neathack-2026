@@ -20,6 +20,11 @@ export async function design(name: "bloom" | "cue") {
       (await fs.readFile(
         path.join(process.cwd(), "lib/browser/growth.js"),
         "utf8",
+      )) +
+      "\n" +
+      (await fs.readFile(
+        path.join(process.cwd(), "lib/browser/prospects.js"),
+        "utf8",
       ));
   html = html.replace(
     name === "cue"

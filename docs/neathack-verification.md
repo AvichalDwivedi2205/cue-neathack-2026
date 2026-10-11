@@ -9,18 +9,24 @@ evidence. Submission publication remains a separate step.
 - Public source: <https://github.com/AvichalDwivedi2205/cue-neathack-2026>.
 - Tracing implementation: source commit `b4b7ee0d8160004b6fa19ed49d6f272573e6a791`.
 - Clean public snapshot: `e2ac467e783582211e0514e57440643e75776bdc`.
-- Hosted Cue: <https://cue.latchgrid.in>; Cloud Run revision `cue-00026-mds`,
-  serving 100% of traffic. Container digest
-  `sha256:a906fa1b12c6bafe84ef35f471e5e29df3055f37a7a270cd3fe4a30304a34137`.
+- Crustdata integration: source commit `a4c3394`, with website review and layout
+  fixes in `918eb80` and final release
+  `2ec885ecd4121d54b4c94552f2b73c4dce4ea428`.
+- Hosted Cue: <https://cue.latchgrid.in>; Cloud Run revision `cue-00030-4rm`,
+  Ready and serving 100% of traffic. Container digest
+  `sha256:5f64efb1a773cd92b688ae7bb3578a15422f667bf3fd39e20b2796658ab99de2`.
 - Public checks passed: secure customer cookie; exact 5 MiB acceptance and
   one-byte-over rejection; persisted photo storage; denied foreign-origin
   deletion; authenticated operator/integration endpoints; WorkOS PKCE callback.
 - The engineering companion is a local worker. It must stay running for coding
   jobs; hosted support and triage also work with the worker offline.
 
-All 306 backend tests in 43 files, lint, typecheck and the production build
-passed after the instrumentation changes. The public source snapshot also
-passed all 306 tests. Production dependency audit:
+All **319 backend tests in 46 files**, lint, typecheck and the production build
+passed after the Crustdata integration. The final website-rule change passed
+the five relevant Crustdata tests, lint, typecheck and another production build;
+the final filter-spacing-only change passed lint and the Cloud Build production
+build. The earlier public tracing snapshot passed all 306 tests. Production
+dependency audit from that snapshot:
 12 moderate advisories, zero high or critical. This is not a clean-audit claim.
 
 ## neatlogs
@@ -44,6 +50,8 @@ Application calls below are separate actual executions.
 | Controlled Growth calls | `2b64c131c0335a844482ee6999f8d2eb` | Qualification and an unsent, capability-grounded draft |
 | Hosted Bloom → Cue support | `faae69efef9fae80cec287b7d8f2d9f3` | One workflow and one actual Gemini call; 807 total tokens; saved product-review reply |
 | Hosted report triage | `f2a4c72067e111716660cfe671ac4ee0` | Finalized three-span trace following the same controlled hosted request |
+| Crustdata direct action | `89e926a915fab8a022aed17d08155e7e` | Five exact-ID company records; 11.15 reported credits; workflow with search/enrichment tool spans |
+| Crustdata hosted UI search | `3adc1f7bab98003dcffd94bdd2ee476d` | Five more exact-ID records; 11.15 reported credits; earlier review state preserved |
 
 Trace URLs use `https://app.neatlogs.com/traces/<trace-id>` and require project
 access. Screenshots in [evidence](evidence/) provide inspectable public proof.
@@ -83,6 +91,10 @@ details were redacted by Entire. Routine provider sender addresses remain.
 Codex hook configuration is checked in. Future automatic capture requires
 reviewing/enabling it through Codex's `/hooks`; this checkpoint was captured
 using the official manual session-attach command.
+
+The checkpoint above captures the initial tracing build. Crustdata source and
+demo updates are published as later repository commits; this update does not
+claim a new Entire checkpoint for the subsequent research session.
 
 ## cfo.ai and plan
 
@@ -128,6 +140,11 @@ The video, public code, checkpoint and plan links are recorded in
 [submission preparation](neathack-submission.md). Optional Crustdata signup
 was completed with the organiser's promo code entered before email signup.
 An available usage balance was verified on October 11, 2026; the dashboard
-reports dollars rather than the advertised 5,000-credit count. Crustdata is
-available for optional research, but Cue does not call its API. No X
-submission was posted.
+reports dollars rather than the advertised 5,000-credit count. Cue now calls
+Crustdata company search and exact-ID enrichment through its authenticated
+server route. Two successful live searches returned ten unique company records
+and reported 22.30 credits. Four companies were shortlisted after official-site
+review, five await review and one without a website was dismissed. The hosted
+shortlist and review decisions persisted after reload. Unauthenticated reads
+return HTTP 401. No company was contacted and no X submission was posted.
+See [implementation, limits and validation](crustdata-customer-research.md).

@@ -102,6 +102,19 @@ describe("Cue telemetry preserves workflow behavior and export privacy", () => {
     expect(spans.map((span) => span.kind)).toEqual(["WORKFLOW", "WORKFLOW"]);
   });
 
+  it("allows metadata-only trace output while returning the complete provider result to the caller", async () => {
+    const raw = {
+      data: { unexpectedPersonalField: "private detail" },
+      credits: 2,
+    };
+    const result = await observed("Company API", async () => raw, {
+      output: (value) => ({ usedCredits: value.credits }),
+    })();
+    expect(result).toBe(raw);
+    expect(spans[0].attributes["output.value"]).toBe('{"usedCredits":2}');
+    expect(JSON.stringify(spans)).not.toContain("private detail");
+  });
+
   it("keeps nested agent work under the workflow boundary", async () => {
     const child = observed("Classification", async () => "bug");
     const root = observed("Triage", async () => child());

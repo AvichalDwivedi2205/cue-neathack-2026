@@ -19,6 +19,7 @@ and a saved team membership; the customer app is public.
 | Entire | CLI enabled; GitHub App restricted to `cue-b2c`. Public checkpoint `01M4N3E1W54RN7FC20B4GJGPEV` captured and verified accessible. |
 | cfo.ai | Business plan and editable financial model saved. Public view-only link: https://cfo.ai/s/IfzpWk2LZv2xR34C. Base/stress economics and hypothetical runway inspected; trial cancellation verified. |
 | Public code | Published: https://github.com/AvichalDwivedi2205/cue-neathack-2026. Clean source, lockfile and tests; private environment files/artifacts/history excluded. |
+| Crustdata (optional) | Live company search and exact-ID enrichment for potential buyers of Cue. Ten records from two searches; 22.30 credits reported. Four shortlisted after product-site review, five awaiting review and one dismissed. Buying intent remains unverified. [Details](crustdata-customer-research.md). |
 | Demo | Narrated 2:29 evidence walkthrough from authentic UI screenshots, covering Cue and all three required sponsors. [Watch or download](evidence/cue-neathack-demo.mp4). |
 
 ## Claims supported by current evidence
@@ -35,7 +36,8 @@ an external publication.
 Built Cue for #neatHack: an agent that turns consumer-app support reports into
 investigated, reviewed and independently verified fixes. Bloom shows the loop.
 Traced with neatlogs, with an inspectable Entire build checkpoint and a cfo.ai
-pilot economics plan. Human review precedes release; commercial results remain
+pilot economics plan. Crustdata researches potential buyers with a reviewed
+company shortlist. Human review precedes release; commercial results remain
 to be tested.
 
 Demo: https://github.com/AvichalDwivedi2205/cue-neathack-2026/raw/refs/heads/main/docs/evidence/cue-neathack-demo.mp4

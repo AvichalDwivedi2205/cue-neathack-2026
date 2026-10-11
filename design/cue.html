@@ -1447,7 +1447,7 @@ function route() {
     if (S.firstInbox) { S.firstInbox = false; S.inboxState = 'loading'; setTimeout(() => { if (S.inboxState === 'loading') { S.inboxState = 'populated'; if (S.sec === 'inbox') renderMain(true); renderDemo(); } }, 650); }
   }
   if (sec === 'integrations' && id === 'x') setTimeout(openCapture, 50);
-  if (sec === 'growth') { if (id === 'campaigns' || id === 'results') { S.growth.tab = id; S.id = null; } else S.growth.tab = 'opportunities'; }
+  if (sec === 'growth') { if (id === 'campaigns' || id === 'results' || id === 'prospects') { S.growth.tab = id; S.id = null; } else S.growth.tab = 'opportunities'; }
   const doIt = () => {
     if ($('#landing').style.display !== 'none') scrollTo(0, 0);
     $('#landing').style.display = 'none';
@@ -2235,7 +2235,7 @@ function gResults() {
 function growthPage() {
   const g = S.growth;
   const head = `<div class="page-h"><div><h1 style="display:flex;gap:8px;align-items:center"><span style="color:var(--accent)">${ic('trend', 20)}</span>Growth</h1><p>Explicit requests your verified features answer. Every reply is reviewed and posted by a person.</p></div>${g.campaigns[0] ? `<div class="r"><span class="chip outline">${ic('target', 11)}${esc(g.campaigns[0].title)}</span></div>` : ''}</div>`;
-  const tabs = [['opportunities', 'Opportunities', gTodo().length, '#/growth'], ['campaigns', 'Campaigns', g.campaigns.length, '#/growth/campaigns'], ['results', 'Results', '', '#/growth/results']];
+  const tabs = [['opportunities', 'Opportunities', gTodo().length, '#/growth'], ['campaigns', 'Campaigns', g.campaigns.length, '#/growth/campaigns'], ['results', 'Results', '', '#/growth/results'], ['prospects', 'Cue customers', '', '#/growth/prospects']];
   const tabBar = `<nav class="g-tabs" aria-label="Growth">${tabs.map(([k, l, c, h]) => `<a href="${h}" class="${g.tab === k ? 'on' : ''}" ${g.tab === k ? 'aria-current="page"' : ''}>${l}${c !== '' && c ? `<span class="n">${c}</span>` : ''}</a>`).join('')}</nav>`;
   let body;
   if (g.state === 'loading') body = `<div class="g-layout"><div class="g-col">${[0, 1, 2].map(() => '<div class="g-row"><div class="sk" style="height:12px;width:50%"></div><div class="sk" style="height:11px;width:92%;margin-top:10px"></div><div class="sk" style="height:11px;width:70%;margin-top:6px"></div></div>').join('')}</div><div class="g-detail" style="padding:22px"><div class="sk" style="height:16px;width:40%"></div><div class="sk" style="height:60px;margin-top:16px"></div><div class="sk" style="height:60px;margin-top:12px"></div><div class="sk" style="height:100px;margin-top:12px"></div></div></div>`;

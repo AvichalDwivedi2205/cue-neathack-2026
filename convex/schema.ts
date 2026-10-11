@@ -2,9 +2,11 @@ import { defineSchema, defineTable } from "convex/server";
 import { v } from "convex/values";
 import { agentId, taskState, taskAction } from "./workspaceValidators";
 import { growthTables } from "./growthSchema";
+import { prospectTables } from "./prospectSchema";
 
 export default defineSchema({
   ...growthTables,
+  ...prospectTables,
   agentConversations: defineTable({
     appId: v.string(),
     agent: agentId,

@@ -30,8 +30,10 @@ import type { DataModel } from "./dataModel.js";
 type Env = {
   readonly CONVEX_CLOUD_URL: string;
   readonly CONVEX_SITE_URL: string;
+  readonly CRUSTDATA_API_KEY: string | undefined;
   readonly CUE_BACKGROUND_ORIGIN: string | undefined;
   readonly CUE_DEMO_SECRET: string | undefined;
+  readonly NEATLOGS_API_KEY: string | undefined;
 };
 
 /**

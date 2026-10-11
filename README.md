@@ -47,3 +47,8 @@ The last command needs model credentials and a neatlogs project key. It sends co
 ## Provenance
 
 This clean source snapshot derives from Cue commit `b4b7ee0d8160004b6fa19ed49d6f272573e6a791` on October 11, 2026. It contains code and a lockfile, with private account artifacts, environment files and earlier private documentation excluded. The source project began October 10, 2026.
+
+Crustdata customer research was added in source commit `a4c3394`, with final review/layout fixes through `2ec885e`. The live
+[company shortlist](https://cue.latchgrid.in/cue#/growth/prospects) requires
+operator access; [setup and limits](docs/crustdata-customer-research.md) explain
+its company-only data, budget reservations and unverified buying intent.

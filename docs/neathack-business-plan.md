@@ -103,3 +103,15 @@ Billing was inspected separately: Startup is **Canceled**, the trial **won't
 renew**, access ends October 25, 2026, and the October 11 invoice is $0.
 Organiser-allocated cfo.ai credits have not been verified; trial access and
 credits are different evidence.
+
+## Optional acquisition research
+
+Crustdata now provides a bounded company-research shortlist for Cue. The first
+successful five-company search and enrichment reported 11.15 provider credits;
+two successful searches found ten unique company records using 22.30 credits.
+Credits are not converted to dollars in this model: a reliable paid dollar rate
+and eventual acquisition cost have not been established. Sponsor-credit usage
+does not prove zero long-term cost. The base/stress tables exclude acquisition
+spend; add measured research and founder-conversation costs before treating the
+pilot economics as commercially complete. No contact or conversion is claimed.
+See [implementation and validation](crustdata-customer-research.md).

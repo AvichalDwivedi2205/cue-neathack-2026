@@ -98,7 +98,11 @@ export function instrumentModel<T extends object>(
 export function observed<Args extends unknown[], Result>(
   name: string,
   operation: (...args: Args) => Promise<Result>,
-  options: { kind?: TraceSpanKind; input?: (...args: Args) => unknown } = {},
+  options: {
+    kind?: TraceSpanKind;
+    input?: (...args: Args) => unknown;
+    output?: (result: Result) => unknown;
+  } = {},
 ) {
   return async (...args: Args): Promise<Result> => {
     if (!(await initializeObservability())) return operation(...args);
@@ -128,7 +132,9 @@ export function observed<Args extends unknown[], Result>(
               redactTelemetry(
                 state.failure
                   ? { status: "failed", error: state.failure }
-                  : (result ?? { completed: true }),
+                  : options.output
+                    ? options.output(result)
+                    : (result ?? { completed: true }),
               ),
             ),
           );
