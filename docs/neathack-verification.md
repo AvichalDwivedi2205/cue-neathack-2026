@@ -125,5 +125,9 @@ Growth activation evidence is controlled, with no organic acquisition or
 paying-customer claim. External replies in the retained fix are drafts.
 
 The video, public code, checkpoint and plan links are recorded in
-[submission preparation](neathack-submission.md). Optional Crustdata credits
-have not been claimed. No X submission was posted.
+[submission preparation](neathack-submission.md). Optional Crustdata signup
+was completed with the organiser's promo code entered before email signup.
+An available usage balance was verified on October 11, 2026; the dashboard
+reports dollars rather than the advertised 5,000-credit count. Crustdata is
+available for optional research, but Cue does not call its API. No X
+submission was posted.
