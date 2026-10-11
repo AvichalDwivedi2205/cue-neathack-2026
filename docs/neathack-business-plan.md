@@ -21,7 +21,7 @@ infrastructure per customer, and $75/month fixed hosting/observability/tools.
 Variable cost is therefore $19/customer/month. Cost of a coding investigation
 is the biggest unmeasured expense; capture real usage before selling a quota.
 
-| Paying customers | Revenue/month | Cost/month | Contribution/month | Margin |
+| Paying customers | Revenue/month | Modeled cost/month | Surplus/month | Modeled margin |
 |---:|---:|---:|---:|---:|
 | 0 | $0 | $75 | -$75 | — |
 | 1 | $99 | $94 | $5 | 5.1% |
@@ -30,13 +30,14 @@ is the biggest unmeasured expense; capture real usage before selling a quota.
 
 Formula: revenue = customers × 99; cost = 75 + customers × 19.
 Founder salary, taxes, payment fees, sales effort, and refunds are excluded;
-these are contribution margins, not net profit. Hackathon credits are excluded
+the surplus subtracts modeled fixed and variable costs but does not estimate
+net profit after these omitted expenses. Hackathon credits are excluded
 from steady-state economics. With a hypothetical $1,000 cash budget and zero
 revenue, infrastructure-only runway is 13.3 months at $75/month. Cash and funding
 have not been supplied, so this is a scenario rather than actual runway.
 
 Stress case: at $12 per investigation, variable cost becomes $64/customer.
-At 20 customers, contribution drops to $625/month and margin to 31.6%.
+At 20 customers, modeled surplus drops to $625/month and margin to 31.6%.
 Fallback: charge expensive coding runs separately, reduce the included quota,
 or provide investigation-only workflows until costs are predictable.
 
