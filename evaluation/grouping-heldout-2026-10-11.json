@@ -1,0 +1,102 @@
+[
+  {
+    "id": "T01",
+    "body": "A 3.2 MB JPG returns 413 even though Bloom promises 5 MB uploads.",
+    "match": "upload"
+  },
+  {
+    "id": "T02",
+    "body": "Uploading a 4 MB photo hits request too large, while a 1 MB photo succeeds.",
+    "match": "upload"
+  },
+  {
+    "id": "T03",
+    "body": "My 2.7 MB PNG is rejected for size despite the 5 MB limit.",
+    "match": "upload"
+  },
+  {
+    "id": "T04",
+    "body": "I would like to browse my photo-journal entries in a monthly grid.",
+    "match": "calendar"
+  },
+  {
+    "id": "T05",
+    "body": "Can I see dots for days I wrote memories, and tap a day to open those entries?",
+    "match": "calendar"
+  },
+  {
+    "id": "T06",
+    "body": "Instead of scrolling, show which dates have memories in a month.",
+    "match": "calendar"
+  },
+  {
+    "id": "T07",
+    "body": "Please let me find old memories by words I wrote in their captions.",
+    "match": "caption"
+  },
+  {
+    "id": "T08",
+    "body": "Can journal search look through the text under saved pictures?",
+    "match": "caption"
+  },
+  {
+    "id": "T09",
+    "body": "I remember a phrase from an entry, but not the date. Search captions please.",
+    "match": "caption"
+  },
+  {
+    "id": "T10",
+    "body": "I want to print my journal with its photographs and dates in a PDF keepsake.",
+    "match": "pdf"
+  },
+  {
+    "id": "T11",
+    "body": "Please create a downloadable PDF containing my journal entries and pictures.",
+    "match": "pdf"
+  },
+  {
+    "id": "T12",
+    "body": "A 9 MB image is rejected by the documented 5 MB upload limit.",
+    "match": null
+  },
+  {
+    "id": "T13",
+    "body": "A 1 MB upload spins forever; there is no size error.",
+    "match": null
+  },
+  {
+    "id": "T14",
+    "body": "My uploaded 3 MB photo is sideways after saving.",
+    "match": null
+  },
+  {
+    "id": "T15",
+    "body": "I want a reminder at 9 PM to write a memory.",
+    "match": null
+  },
+  {
+    "id": "T16",
+    "body": "Please sync photos across my phone and laptop.",
+    "match": null
+  },
+  {
+    "id": "T17",
+    "body": "Can I search words in the photo pixels using OCR?",
+    "match": null
+  },
+  {
+    "id": "T18",
+    "body": "Please schedule memories to publish on future dates.",
+    "match": null
+  },
+  {
+    "id": "T19",
+    "body": "I need CSV export of metadata, without photographs.",
+    "match": null
+  },
+  {
+    "id": "T20",
+    "body": "How do I change the title on an entry?",
+    "match": null
+  }
+]

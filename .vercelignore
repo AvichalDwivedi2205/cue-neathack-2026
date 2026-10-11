@@ -1,0 +1,14 @@
+**/node_modules/**
+**/.next/**
+**/.env*
+**/.cue/**
+**/.convex/**
+**/.vercel/**
+**/artifacts/**
+**/coverage/**
+**/.agents/**
+**/.claude/**
+**/.cursor/**
+**/*.tsbuildinfo
+apps/bloom/generated/**
+apps/bloom/public/**

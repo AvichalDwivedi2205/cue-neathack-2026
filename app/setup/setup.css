@@ -1,0 +1,171 @@
+.setup {
+  max-width: 960px;
+  margin: 44px auto;
+  padding: 24px;
+  color: #1c2922;
+  font: 15px system-ui;
+}
+.setup a {
+  color: #217a54;
+}
+.setup h1 {
+  font-size: 34px;
+  margin: 25px 0 8px;
+}
+.setup .lede {
+  font-size: 17px;
+  color: #637068;
+  line-height: 1.6;
+}
+.setup section {
+  background: white;
+  border: 1px solid #e1e7e0;
+  border-radius: 16px;
+  padding: 28px;
+  margin: 24px 0;
+  scroll-margin-top: 24px;
+}
+.setup h2 {
+  font-size: 22px;
+  margin: 0;
+}
+.setup h3 {
+  font-size: 16px;
+}
+.setup p,
+.setup li {
+  line-height: 1.7;
+}
+.setup .section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.setup .badge {
+  font-size: 12px;
+  background: #eef4ee;
+  color: #356349;
+  border-radius: 20px;
+  padding: 7px 12px;
+}
+.setup form {
+  margin-top: 24px;
+}
+.setup label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.setup input,
+.setup select,
+.setup textarea {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  border: 1px solid #d9e2d9;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fff;
+  color: #1c2922;
+  font: 14px system-ui;
+}
+.setup .team-member {
+  border: 1px solid #d9e2d9;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 18px 0;
+}
+.setup .team-member legend {
+  font-weight: 600;
+  padding: 0 6px;
+}
+.setup textarea {
+  height: 85px;
+  resize: vertical;
+}
+.setup button {
+  border: 1px solid #217a54;
+  border-radius: 8px;
+  padding: 11px 17px;
+  font: 600 13px system-ui;
+  color: white;
+  background: #217a54;
+  cursor: pointer;
+}
+.setup button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.setup .secondary {
+  background: white;
+  color: #217a54;
+}
+.setup .fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 18px;
+}
+.setup .checkbox-field {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.setup .checkbox-field input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+}
+.setup .links {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+.setup pre {
+  background: #f3f6f2;
+  padding: 18px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+  border-radius: 8px;
+  line-height: 1.7;
+}
+.setup .small {
+  font-size: 12px;
+  color: #6a766c;
+}
+.setup .install {
+  border-top: 1px solid #e4e8e1;
+  margin-top: 22px;
+  padding-top: 14px;
+}
+.setup-notice {
+  position: sticky;
+  top: 8px;
+  background: #ecf4ee;
+  border: 1px solid #d7e5da;
+  border-radius: 10px;
+  padding: 14px;
+  z-index: 2;
+  font-size: 13px;
+}
+@media (max-width: 640px) {
+  .setup {
+    margin: 10px auto;
+    padding: 16px;
+  }
+  .setup section {
+    padding: 20px;
+  }
+  .setup .fields {
+    grid-template-columns: 1fr;
+  }
+  .setup .section-heading {
+    align-items: flex-start;
+  }
+}

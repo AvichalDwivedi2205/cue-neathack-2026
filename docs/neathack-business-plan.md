@@ -1,0 +1,80 @@
+# Cue business plan — neatHack 2026
+
+Cue helps small consumer-app teams turn customer reports into investigated,
+reviewed, and verified product changes. The first customer is a founder or a
+small product team maintaining one app and receiving repeated support reports.
+Bloom is our controlled demonstration app, not a paying customer.
+
+## Offer and pricing hypothesis
+
+Test a $99/month plan for one app: 50 support conversations and five scoped
+coding investigations, with human approval before publishing or releasing.
+This is a proposed pilot price, not a launched plan or willingness-to-pay result.
+Start with three to five design partners. Retain manual review for uncertain
+grouping and limit coding to a connected, trusted repository and approved paths.
+
+## Cost model
+
+All dollar amounts below are planning allowances, not measured provider bills.
+Assume $0.02 per support conversation, $3 per coding investigation, $3 variable
+infrastructure per customer, and $75/month fixed hosting/observability/tools.
+Variable cost is therefore $19/customer/month. Cost of a coding investigation
+is the biggest unmeasured expense; capture real usage before selling a quota.
+
+| Paying customers | Revenue/month | Cost/month | Contribution/month | Margin |
+|---:|---:|---:|---:|---:|
+| 0 | $0 | $75 | -$75 | — |
+| 1 | $99 | $94 | $5 | 5.1% |
+| 5 | $495 | $170 | $325 | 65.7% |
+| 20 | $1,980 | $455 | $1,525 | 77.0% |
+
+Formula: revenue = customers × 99; cost = 75 + customers × 19.
+Founder salary, taxes, payment fees, sales effort, and refunds are excluded;
+these are contribution margins, not net profit. Hackathon credits are excluded
+from steady-state economics. With a hypothetical $1,000 cash budget and zero
+revenue, infrastructure-only runway is 13.3 months at $75/month. Cash and funding
+have not been supplied, so this is a scenario rather than actual runway.
+
+Stress case: at $12 per investigation, variable cost becomes $64/customer.
+At 20 customers, contribution drops to $625/month and margin to 31.6%.
+Fallback: charge expensive coding runs separately, reduce the included quota,
+or provide investigation-only workflows until costs are predictable.
+
+## Smallest falsifiable pilot
+
+Recruit three founders with a trusted app repository. Over one week, compare
+ten eligible support reports per founder with their current manual workflow.
+Match report complexity and record elapsed human work, coding/provider cost,
+independent acceptance checks, rejected suggestions, and required edits.
+Keep a separate set of unseen reports for final assessment.
+
+Success: at least 30% less human work on eligible reports, zero cross-app data
+exposure or unsupported release claims, independent checks passing before
+resolution, and at least two founders agreeing to the $99 paid pilot.
+Stop automatic grouping on any false merge. Stop autonomous implementation on
+any protected-file change or approval bypass. Pivot to support investigation
+and draft preparation if median human savings are below 20%, or if fewer than
+two founders want to pay. Add complexity only after this baseline succeeds.
+
+## Current evidence and limits
+
+The inspected application retains a real scoped Codex investigation, protected
+tests, a reviewed commit, and deployed acceptance evidence. A fresh replay of
+the upload fixture produces three failed acceptance checks before the limit
+fix and eight passing HTTP checks afterward. This replay applies the existing
+one-line correction in a temporary copy; it is not a new autonomous coding run.
+Fresh Gemini support, classification, specification, and Growth calls have
+neatlogs traces. Their controlled drafts were not sent to customers.
+
+Growth has a previously verified controlled publication-to-Bloom activation
+journey. Organic acquisition, retention, paid customers, and revenue are
+unmeasured. Generic arbitrary-repository bug fixing and unattended releases
+are outside the demonstrated scope.
+
+## cfo.ai evidence
+
+Account email is verified. Workspace access awaits the user completing the
+trial/card step and immediately canceling the subscription, as instructed in
+the event email. This document is the prepared model input. It must not be
+represented as a cfo.ai-generated plan until the actual workspace model and
+its accessible evidence are recorded.

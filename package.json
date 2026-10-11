@@ -1,0 +1,62 @@
+{
+  "name": "cue",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "run-p dev:web dev:worker",
+    "dev:local": "run-p dev:convex dev:web dev:worker",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck && next build",
+    "start": "next start --hostname 127.0.0.1",
+    "lint": "eslint .",
+    "dev:web": "next dev --webpack --hostname 127.0.0.1",
+    "dev:worker": "tsx scripts/worker.ts",
+    "dev:convex": "convex dev --typecheck disable",
+    "test:regression": "node demo/bloom/test.mjs",
+    "test:backend": "vitest run",
+    "verify": "tsx scripts/verify.ts",
+    "preflight": "tsx scripts/preflight.ts",
+    "evaluate:triage": "tsx scripts/evaluate-triage.ts",
+    "evaluate:replies": "tsx scripts/evaluate-replies.ts"
+  },
+  "dependencies": {
+    "@convex-dev/agent": "^0.7.7",
+    "@convex-dev/workpool": "^0.4.14",
+    "@google/genai": "^2.28.0",
+    "@openai/codex-sdk": "^0.162.1",
+    "@slack/socket-mode": "^3.1.0",
+    "@workos-inc/authkit-nextjs": "^4.4.0",
+    "@workos-inc/node": "^10.14.0",
+    "@workos-inc/widgets": "^1.20.0",
+    "convex": "^1.44.0",
+    "google-auth-library": "10.9.1",
+    "neatlogs": "1.1.28",
+    "next": "^16.3.0",
+    "npm-run-all2": "^5.0.0",
+    "parse5": "^8.0.1",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "resend": "^6.32.1",
+    "sharp": "^0.35.5",
+    "tsx": "^4.23.15",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "convex-test": "^0.0.61",
+    "eslint": "^9",
+    "eslint-config-next": "^16.3.0",
+    "prettier": "3.6.2",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.11"
+  },
+  "type": "module",
+  "overrides": {
+    "@opentelemetry/exporter-logs-otlp-proto": {
+      "protobufjs": "8.6.6"
+    },
+    "@opentelemetry/propagator-jaeger": "2.9.0"
+  }
+}

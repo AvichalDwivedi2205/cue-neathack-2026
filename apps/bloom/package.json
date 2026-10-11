@@ -1,0 +1,39 @@
+{
+  "name": "bloom",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "node scripts/prepare-assets.mjs && next dev --webpack --hostname 127.0.0.1",
+    "prebuild": "node scripts/prepare-assets.mjs",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint . --max-warnings 0"
+  },
+  "dependencies": {
+    "convex": "^1.44.0",
+    "next": "^16.3.8",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@convex-dev/eslint-plugin": "^5.0.0",
+    "@edge-runtime/vm": "^5.0.0",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "convex-test": "^0.0.61",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.3.8",
+    "tsx": "^4.23.15",
+    "typescript": "6.0.3",
+    "vitest": "^4.1.11"
+  },
+  "type": "module",
+  "engines": {
+    "node": "22.x"
+  }
+}

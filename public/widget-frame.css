@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  font: 14px system-ui;
+  color: #18231f;
+  background: #fff;
+}
+header {
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e7ebe8;
+}
+header strong {
+  display: block;
+  font-size: 17px;
+}
+small {
+  display: block;
+  font-size: 12px;
+  color: #6c7770;
+  margin-top: 4px;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  background: #217a54;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px 16px;
+  font: 600 14px system-ui;
+}
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+#close {
+  background: #f4f6f3;
+  color: #555;
+  font-size: 22px;
+  padding: 0 10px;
+}
+main {
+  overflow: auto;
+  flex: 1;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.bubble {
+  padding: 12px 14px;
+  background: #f2f5f1;
+  border-radius: 12px;
+  max-width: 92%;
+  align-self: flex-start;
+}
+.customer {
+  background: #e3f2e8;
+  align-self: flex-end;
+}
+.bubble p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+.welcome {
+  line-height: 1.6;
+  color: #657068;
+}
+footer {
+  border-top: 1px solid #e7ebe8;
+  padding: 12px 16px;
+}
+#status {
+  font-size: 12px;
+  color: #657068;
+  margin: 0 0 10px;
+}
+textarea {
+  width: 100%;
+  resize: none;
+  height: 74px;
+  padding: 12px;
+  border: 1px solid #d9e0da;
+  border-radius: 8px;
+  font: 14px system-ui;
+}
+form > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.file {
+  font-size: 12px;
+  cursor: pointer;
+  color: #217a54;
+}
+.file input {
+  display: block;
+  width: 210px;
+  font-size: 11px;
+  margin-top: 5px;
+}

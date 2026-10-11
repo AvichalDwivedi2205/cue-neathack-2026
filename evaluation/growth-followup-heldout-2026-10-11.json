@@ -1,0 +1,102 @@
+[
+  {
+    "id": "F01",
+    "text": "Can anyone recommend a browser photo diary where searching caption words finds old entries?",
+    "eligible": true
+  },
+  {
+    "id": "F02",
+    "text": "Looking for a memory journal to find a picture using text I wrote beneath it.",
+    "eligible": true
+  },
+  {
+    "id": "F03",
+    "text": "Is there a photo journal with search across saved memory captions?",
+    "eligible": true
+  },
+  {
+    "id": "F04",
+    "text": "Suggest an app for a photo diary: I want to search old entries by caption text.",
+    "eligible": true
+  },
+  {
+    "id": "F05",
+    "text": "Help me find my saved journal memories from a remembered caption phrase.",
+    "eligible": true
+  },
+  {
+    "id": "F06",
+    "text": "Any app for finding photo diary entries using words in the captions?",
+    "eligible": true
+  },
+  {
+    "id": "F07",
+    "text": "I need a journal app to search my written captions rather than dates.",
+    "eligible": true
+  },
+  {
+    "id": "F08",
+    "text": "Anyone recommend a memory journal that lets me find saved photos by their captions?",
+    "eligible": true
+  },
+  {
+    "id": "F09",
+    "text": "Try our photo diary! Caption search finds all memories. Anyone looking for this should join.",
+    "eligible": false
+  },
+  {
+    "id": "F10",
+    "text": "Use my journal app to search captions. Looking for memories? Subscribe now.",
+    "eligible": false
+  },
+  {
+    "id": "F11",
+    "text": "Anyone suggest a photo app to place a funny caption on the image?",
+    "eligible": false
+  },
+  {
+    "id": "F12",
+    "text": "Looking for a photo editor to write captions directly on pictures.",
+    "eligible": false
+  },
+  {
+    "id": "F13",
+    "text": "Anyone recommend a photo journal with PDF export and caption search?",
+    "eligible": false
+  },
+  {
+    "id": "F14",
+    "text": "Is there a memory journal with syncing and caption search?",
+    "eligible": false
+  },
+  {
+    "id": "F15",
+    "text": "Looking for collaborative photo albums that search captions.",
+    "eligible": false
+  },
+  {
+    "id": "F16",
+    "text": "Is anyone else unable to search old captions in their photo diary? I need technical support.",
+    "eligible": false
+  },
+  {
+    "id": "F17",
+    "text": "Searching my photo journal is frustrating; it keeps spinning after I press search.",
+    "eligible": false
+  },
+  {
+    "id": "F18",
+    "text": "Anyone recommend a way to search subtitles on educational videos?",
+    "eligible": false
+  },
+  {
+    "id": "F19",
+    "text": "Please find journal articles that explain memory and the brain.",
+    "eligible": false
+  },
+  {
+    "id": "F20",
+    "text": "Our affiliate photo journal sale is live. Anyone looking for caption search should buy today.",
+    "eligible": false
+  }
+]

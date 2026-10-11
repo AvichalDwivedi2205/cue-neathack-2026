@@ -1,0 +1,176 @@
+import { defineTable } from "convex/server";
+import { v } from "convex/values";
+import { actor } from "./workspaceValidators";
+export const growthEventType = v.union(
+  v.literal("session_confirmed"),
+  v.literal("memory_created"),
+  v.literal("caption_search_match"),
+);
+export const growthTables = {
+  growthCapabilities: defineTable({
+    appId: v.string(),
+    name: v.string(),
+    need: v.string(),
+    claims: v.array(v.string()),
+    release: v.string(),
+    evidence: v.string(),
+    version: v.number(),
+    valid: v.boolean(),
+    checkedAt: v.number(),
+    verifiedBy: v.optional(v.string()),
+  }).index("by_appId", ["appId"]),
+  growthCampaigns: defineTable({
+    appId: v.string(),
+    capabilityId: v.id("growthCapabilities"),
+    name: v.string(),
+    query: v.string(),
+    paused: v.boolean(),
+    dailyLimit: v.number(),
+    used: v.number(),
+    budgetDay: v.string(),
+    lastRunAt: v.optional(v.number()),
+    lastScheduledAt: v.optional(v.number()),
+    lastError: v.optional(v.string()),
+    nextToken: v.optional(v.string()),
+    sinceId: v.optional(v.string()),
+    pendingSinceId: v.optional(v.string()),
+    leaseToken: v.optional(v.string()),
+    leaseUntil: v.optional(v.number()),
+    retryAt: v.optional(v.number()),
+  })
+    .index("by_appId", ["appId"])
+    .index("by_paused", ["paused"]),
+  growthOpportunities: defineTable({
+    appId: v.string(),
+    campaignId: v.id("growthCampaigns"),
+    sourceKey: v.string(),
+    sourceUrl: v.string(),
+    channel: v.union(v.literal("x"), v.literal("reddit")),
+    author: v.string(),
+    text: v.string(),
+    sourceAt: v.number(),
+    provenance: v.string(),
+    controlled: v.boolean(),
+    need: v.optional(v.string()),
+    featureIssueId: v.optional(v.id("issues")),
+    eligible: v.boolean(),
+    fit: v.optional(
+      v.union(v.literal("High"), v.literal("Medium"), v.literal("Low")),
+    ),
+    reasons: v.array(v.string()),
+    capabilityId: v.optional(v.id("growthCapabilities")),
+    status: v.union(
+      v.literal("discovered"),
+      v.literal("qualified"),
+      v.literal("needs-feature"),
+      v.literal("dismissed"),
+      v.literal("drafted"),
+      v.literal("awaiting-review"),
+      v.literal("approved"),
+      v.literal("publication-recorded"),
+      v.literal("published"),
+    ),
+    createdAt: v.number(),
+    updatedAt: v.number(),
+  })
+    .index("by_appId", ["appId"])
+    .index("by_appId_and_sourceKey", ["appId", "sourceKey"]),
+  growthDrafts: defineTable({
+    opportunityId: v.id("growthOpportunities"),
+    capabilityId: v.id("growthCapabilities"),
+    capabilityVersion: v.number(),
+    release: v.string(),
+    text: v.string(),
+    hash: v.string(),
+    version: v.number(),
+    status: v.union(
+      v.literal("draft"),
+      v.literal("requested"),
+      v.literal("approved"),
+      v.literal("rejected"),
+    ),
+    reviewer: v.optional(v.string()),
+    reviewedAt: v.optional(v.number()),
+    requestedAt: v.optional(v.number()),
+    createdAt: v.number(),
+  }).index("by_opportunityId", ["opportunityId"]),
+  growthTouches: defineTable({
+    appId: v.string(),
+    campaignId: v.id("growthCampaigns"),
+    opportunityId: v.id("growthOpportunities"),
+    draftId: v.optional(v.id("growthDrafts")),
+    draftHash: v.optional(v.string()),
+    tokenHash: v.string(),
+    link: v.string(),
+    expiresAt: v.number(),
+    destination: v.string(),
+    publicationUrl: v.optional(v.string()),
+    status: v.union(
+      v.literal("unpublished"),
+      v.literal("reported"),
+      v.literal("verified"),
+      v.literal("failed"),
+    ),
+    verification: v.optional(v.string()),
+    clicks: v.number(),
+    lastClickAt: v.optional(v.number()),
+    createdAt: v.number(),
+    publishedAt: v.optional(v.number()),
+  })
+    .index("by_tokenHash", ["tokenHash"])
+    .index("by_appId", ["appId"])
+    .index("by_opportunityId", ["opportunityId"]),
+  growthEvents: defineTable({
+    appId: v.string(),
+    touchId: v.id("growthTouches"),
+    browser: v.string(),
+    eventId: v.string(),
+    type: growthEventType,
+    occurredAt: v.number(),
+    receivedAt: v.number(),
+    internal: v.boolean(),
+    returning: v.boolean(),
+  })
+    .index("by_appId_and_eventId", ["appId", "eventId"])
+    .index("by_appId", ["appId"])
+    .index("by_touchId", ["touchId"]),
+  growthBrowsers: defineTable({
+    appId: v.string(),
+    touchId: v.id("growthTouches"),
+    browser: v.string(),
+    internal: v.boolean(),
+    returning: v.boolean(),
+    confirmedAt: v.optional(v.number()),
+    savedAt: v.optional(v.number()),
+    activatedAt: v.optional(v.number()),
+  })
+    .index("by_appId_and_browser", ["appId", "browser"])
+    .index("by_appId", ["appId"])
+    .index("by_touchId", ["touchId"]),
+  growthReceipts: defineTable({
+    appId: v.string(),
+    taskId: v.id("agentTasks"),
+    actor,
+    action: v.union(
+      v.literal("discover"),
+      v.literal("qualify"),
+      v.literal("draft"),
+    ),
+    campaignId: v.id("growthCampaigns"),
+    opportunityId: v.optional(v.id("growthOpportunities")),
+    key: v.string(),
+    status: v.union(
+      v.literal("queued"),
+      v.literal("completed"),
+      v.literal("failed"),
+    ),
+    workId: v.optional(v.string()),
+    leaseToken: v.optional(v.string()),
+    leaseUntil: v.optional(v.number()),
+    baseDraftId: v.optional(v.id("growthDrafts")),
+    resultDraftId: v.optional(v.id("growthDrafts")),
+    capabilityVersion: v.optional(v.number()),
+    qualificationPolicyVersion: v.optional(v.number()),
+    automatic: v.optional(v.boolean()),
+  }).index("by_key", ["key"]),
+};

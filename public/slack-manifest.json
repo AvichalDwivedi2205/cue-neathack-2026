@@ -1,0 +1,23 @@
+{
+  "display_information": {
+    "name": "Cue",
+    "description": "Customer problems to verified engineering fixes",
+    "background_color": "#217a54"
+  },
+  "features": { "bot_user": { "display_name": "Cue", "always_online": false } },
+  "oauth_config": {
+    "scopes": {
+      "bot": [
+        "app_mentions:read",
+        "channels:history",
+        "channels:read",
+        "chat:write"
+      ]
+    }
+  },
+  "settings": {
+    "socket_mode_enabled": true,
+    "interactivity": { "is_enabled": true },
+    "event_subscriptions": { "bot_events": ["app_mention", "message.channels"] }
+  }
+}

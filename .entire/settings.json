@@ -1,0 +1,24 @@
+{
+  "enabled": true,
+  "telemetry": false,
+  "strategy_options": {
+    "push_sessions": false
+  },
+  "checkpoints": {
+    "primary": {
+      "type": "git-refs"
+    }
+  },
+  "redaction": {
+    "pii": {
+      "enabled": true,
+      "email": true,
+      "phone": true
+    },
+    "custom_redactions": {
+      "credential_shaped_text": "[A-Za-z0-9_-]{28,}",
+      "verification_codes": "[0-9]{6,8}",
+      "oauth_query": "(authuser|client_id|state|rapt|user_code|access_token|refresh_token|code)=[^&[:space:]<>]+"
+    }
+  }
+}
