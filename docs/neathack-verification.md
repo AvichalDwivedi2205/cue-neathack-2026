@@ -1,8 +1,8 @@
 # Cue · neatHack verification
 
 Verified October 11, 2026. Required sponsor completion is **neatlogs: done;
-Entire: done; cfo.ai: pending user card signup and immediate cancellation**.
-The project is not ready to claim all three sponsors in a final submission.
+Entire: done; cfo.ai: done**. All three required sponsors have actual usage
+evidence. Submission publication remains a separate step.
 
 ## Working source and release
 
@@ -86,29 +86,44 @@ using the official manual session-attach command.
 
 ## cfo.ai and plan
 
-The organiser's dedicated link is <https://cfo.ai/neathacks>. The verified
-email account still shows plan selection. The user confirmed the card signup
-was not completed. The card/subscription action is handed to the user.
+The organiser's dedicated link is <https://cfo.ai/neathacks>. The user completed
+card signup. Billing was inspected: Startup **Canceled**, trial **won't renew**,
+access ends October 25, 2026, and the October 11 invoice is **$0**. Payment
+details are excluded from public evidence.
 
-After signup, cancel immediately in Settings → Billing, per the organiser's
-email. Do not claim platform usage or allocated credits until the workspace
-and balance are visible. [Prepared business plan](neathack-business-plan.md)
-contains pricing, model-cost allowances, monthly contribution scenarios,
-infrastructure-only runway and pilot success/kill/pivot criteria. Its numbers
-are projections, not revenue, costs or customer results already achieved.
+cfo.ai saved **Cue neatHack — pilot economics and runway** in the Cue workspace.
+Its [public view-only link](https://cfo.ai/s/IfzpWk2LZv2xR34C) was opened in a
+separate browser profile without signing in. The editable assumptions feed
+native tables and a separate coding-cost stress scenario. Base surplus at
+0/1/5/20 hypothetical customers is -$75/$5/$325/$1,525; the $12/run stress case
+is -$75/-$40/$100/$625. Modeled break-even is 1/3 customers, and 20-customer
+modeled margins are 77.0%/31.6%. The hypothetical $1,000 cash scenario gives
+13.3 months of infrastructure-only runway at zero revenue.
 
-## Demo and remaining work
+[Business plan](neathack-business-plan.md) and [screenshots](evidence/)
+preserve limitations and pilot success/kill/pivot criteria. Costs and customers
+are planning assumptions; labor and other listed expenses are excluded.
+Organiser-allocated cfo.ai credits have not been verified.
 
-A narrated **2:10** draft evidence walkthrough was created from authentic UI
+The first shared Canvas failed because it requested a dataset from a scenario
+outside the public share. The saved Canvas now derives the $12/run stress case
+from Main Scenario inputs and an explicit same-page stress allowance. Public
+rendering was inspected after the repair: chart, all eight comparison rows and
+13.3-month runway were visible. Changing the public local-preview allowance
+from $3 to $12 produced $625 surplus, 31.6% modeled margin and 3-customer
+break-even; Reset restored $1,525, 77.0% and 1. Canvas controls do not save.
+
+## Demo and submission
+
+A narrated **2:29** final evidence walkthrough was created from authentic UI
 screenshots. It is a documentary walkthrough, not a continuous recording of a
 new coding run. H.264 1920×1080, AAC 48 kHz. The retained patch and tests are
-separate from fresh sponsor replay/model calls. The draft explicitly says
-cfo.ai is pending. It must be updated with actual cfo.ai evidence before being
-used as the final three-sponsor submission.
+separate from fresh sponsor replay/model calls. The final scene shows the
+actual cfo.ai model and labels its figures as planning assumptions.
 
 Growth activation evidence is controlled, with no organic acquisition or
 paying-customer claim. External replies in the retained fix are drafts.
 
-Remaining: user completes cfo.ai signup/cancellation; create and inspect the
-business plan in that workspace; update the final demo and submission links.
-Optional Crustdata credits have not been claimed. No X submission was posted.
+The video, public code, checkpoint and plan links are recorded in
+[submission preparation](neathack-submission.md). Optional Crustdata credits
+have not been claimed. No X submission was posted.

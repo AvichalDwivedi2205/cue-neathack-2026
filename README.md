@@ -5,6 +5,9 @@ Cue helps consumer-app teams turn customer feedback into investigated, reviewed 
 - [Cue](https://cue.latchgrid.in) · [operator workspace](https://cue.latchgrid.in/cue#/home) (sign-in and team membership required)
 - [Bloom customer app](https://bloom-with-cue.vercel.app)
 - [Business plan](docs/neathack-business-plan.md) · [Demo script](docs/neathack-demo-script.md) · [Submission evidence](docs/neathack-submission.md)
+- [Watch the 2:29 demo](https://github.com/AvichalDwivedi2205/cue-neathack-2026/raw/refs/heads/main/docs/evidence/cue-neathack-demo.mp4)
+- [cfo.ai pilot economics plan](https://cfo.ai/s/IfzpWk2LZv2xR34C) (planning assumptions)
+- [Public Entire checkpoint](https://entire.io/et/cue-neathack-2026/cue/session/01a129c7-7f3e-7e00-80a5-dbdbea47cf3c) · ID `01M4N3E1W54RN7FC20B4GJGPEV`
 
 ## What works
 

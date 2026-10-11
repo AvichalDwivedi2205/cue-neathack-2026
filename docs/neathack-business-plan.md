@@ -41,6 +41,17 @@ At 20 customers, modeled surplus drops to $625/month and margin to 31.6%.
 Fallback: charge expensive coding runs separately, reduce the included quota,
 or provide investigation-only workflows until costs are predictable.
 
+| Paying customers | Base surplus/month | Coding-cost stress surplus/month |
+|---:|---:|---:|
+| 0 | -$75 | -$75 |
+| 1 | $5 | -$40 |
+| 5 | $325 | $100 |
+| 20 | $1,525 | $625 |
+
+Modeled break-even is one paying customer in the base case and three in the
+stress case. These thresholds cover only the modeled allowances and exclude
+the expenses listed above.
+
 ## Smallest falsifiable pilot
 
 Recruit three founders with a trusted app repository. Over one week, compare
@@ -74,8 +85,21 @@ are outside the demonstrated scope.
 
 ## cfo.ai evidence
 
-Account email is verified. Workspace access awaits the user completing the
-trial/card step and immediately canceling the subscription, as instructed in
-the event email. This document is the prepared model input. It must not be
-represented as a cfo.ai-generated plan until the actual workspace model and
-its accessible evidence are recorded.
+On October 11, 2026, cfo.ai saved **Cue neatHack — pilot economics and runway**
+in the Cue workspace. It contains the business plan, editable assumptions,
+formula-linked customer-volume economics, a separate $12/run coding-cost
+stress scenario, hypothetical infrastructure-only runway, and pilot criteria.
+The base table, stress results, margins, break-even counts and runway were
+checked against the supplied formulas. This document summarizes the inputs
+and inspected output; it is not a record of achieved commercial results.
+
+- [Public view-only cfo.ai plan](https://cfo.ai/s/IfzpWk2LZv2xR34C)
+- [Editable workspace page](https://app.cfo.ai/cue-f814c9dc/pages/12d35fbf-ff88-4762-9f57-227404be9da5)
+- [Plan screenshot](evidence/cfo-business-plan.jpg) and
+  [scenario tables](evidence/cfo-scenarios.jpg), including the
+  [coding-cost stress comparison](evidence/cfo-stress-scenario.jpg)
+
+Billing was inspected separately: Startup is **Canceled**, the trial **won't
+renew**, access ends October 25, 2026, and the October 11 invoice is $0.
+Organiser-allocated cfo.ai credits have not been verified; trial access and
+credits are different evidence.

@@ -1,34 +1,38 @@
 # Cue — a support report becomes a verified fix
 
-Target: 2 minutes 30 seconds or less. Show the working application and its
-recorded evidence. Narration must identify controlled tests and historical
-runs accurately.
+The final video lasts approximately **2:29**, within the three-minute limit.
+It uses authentic UI screenshots and narration. It is a documentary walkthrough
+of retained run evidence and fresh controlled executions. Each scene labels its
+evidence type; no new continuous autonomous coding run is claimed.
 
-1. **Problem, 15 seconds.** Open Bloom and Cue's Inbox. “A customer reports that
-   a three-megabyte photo is rejected, even though the app promises five.”
-2. **Support and triage, 25 seconds.** Open the retained upload case and issue.
-   Show the conversation, related reports, and evidence. “Cue saves the report,
-   investigates the symptoms, and keeps uncertain grouping available for human
-   review. A reply does not claim a fix before one has been verified.”
-3. **Coding and independent checks, 35 seconds.** Open Changes and the retained
-   upload investigation. Show the actual diff and before/after HTTP output.
-   “Codex changed the allowed limit in an isolated checkout. The supervisor
-   protected the tests and ran them independently: the three failing checks
-   become eight passing checks, while oversized and invalid images stay blocked.”
-4. **Approval and release, 20 seconds.** Show the exact approved commit and
-   verified deployment state. “The recorded run requires approval of the exact
-   commit. Deployment and acceptance evidence are separate from the agent's
-   claim that its patch works.”
-5. **Sponsor evidence, 35 seconds.** Open the fresh neatlogs support trace and
-   regression pair, then the Entire checkpoint. “neatlogs captures model calls,
-   usage, tools, and failures. Entire keeps the code change and captured session
-   context together.” Show the actual cfo.ai model only after it exists; otherwise
-   leave this section explicitly marked pending in a draft video.
-6. **Close, 20 seconds.** Return to Bloom/Cue. “Cue is an agent for small app teams:
-   investigate, propose, review, verify, and update. Today’s demo proves a scoped
-   workflow. Wider repository support and organic growth are still to be tested.”
+1. **Cue workflow, 0:00–0:18.** Show the live workspace. Explain the support,
+   investigation, testing, review and release loop. Bloom is a controlled
+   demonstration app.
+2. **Retained Codex patch, 0:18–0:38.** Show the actual correction from a 2 MiB
+   server limit to the promised 5 MiB limit, with protected independent tests.
+3. **Tests and approval, 0:38–1:01.** Show eight independent HTTP checks and
+   human approval of the exact commit before release. The deployed 3 MiB case
+   passed and 6 MiB control was rejected. External replies remain drafts.
+4. **neatlogs failures, 1:01–1:23.** Show the fresh temporary-copy replay:
+   three acceptance failures before the existing fix, eight passes afterward.
+   Explicitly identify this as a known-fix replay.
+5. **neatlogs actual model usage, 1:23–1:46.** Show the Gemini support trace,
+   778 input and 23 output tokens. Controlled drafts do not establish customer
+   deliveries or organic acquisition.
+6. **Entire checkpoint, 1:46–2:04.** Show the public captured session, commit
+   association and inspectable code. Credentials and private contact details
+   were redacted before sharing.
+7. **cfo.ai model, 2:04–2:29.** Show the saved pilot business plan, $99 proposed
+   monthly price, base and coding-cost stress scenarios, and hypothetical
+   infrastructure-only runway. The modeled monthly surplus at 20 customers
+   changes from $1,525 to $625 when coding cost changes from $3 to $12/run.
+   Omitted expenses and the need for a measured founder pilot remain explicit.
 
 The demonstration app's known upload failure is already fixed in production.
-Do not regress it for recording. Use the retained actual run plus the fresh,
-clearly labeled temporary-copy trace replay. Do not imply every displayed
-stage was performed live during the recording.
+The video uses the retained actual run and a clearly labeled disposable-copy
+replay. Every stage is tied to evidence; displayed screenshots do not imply
+that all stages happened during recording.
+
+[Final video](evidence/cue-neathack-demo.mp4) ·
+[Public cfo.ai plan](https://cfo.ai/s/IfzpWk2LZv2xR34C) ·
+[Verification](neathack-verification.md)
