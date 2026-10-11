@@ -3,8 +3,10 @@ import { v } from "convex/values";
 import { agentId, taskState, taskAction } from "./workspaceValidators";
 import { growthTables } from "./growthSchema";
 import { prospectTables } from "./prospectSchema";
+import { knowledgeTables } from "./knowledgeSchema";
 
 export default defineSchema({
+  ...knowledgeTables,
   ...growthTables,
   ...prospectTables,
   agentConversations: defineTable({

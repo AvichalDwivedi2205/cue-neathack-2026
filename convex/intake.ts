@@ -4,6 +4,8 @@ import { v, ConvexError } from "convex/values";
 import { authorize } from "./cue";
 import type { Id } from "./_generated/dataModel";
 import { socialSource } from "../lib/social-source";
+import { knowledgeReply } from "./knowledgeSchema";
+import { currentHits } from "./knowledge";
 
 export const widgetMessage = mutation({
   args: {
@@ -16,10 +18,51 @@ export const widgetMessage = mutation({
     initialBody: v.string(),
     sourceUrl: v.string(),
     ack: v.optional(v.string()),
+    knowledge: v.optional(knowledgeReply),
   },
   returns: v.object({ caseId: v.id("cases"), created: v.boolean() }),
   handler: async (ctx, a) => {
     authorize(a.secret);
+    const knowledge = a.knowledge;
+    const validKnowledge =
+      !knowledge ||
+      (knowledge.usedChunkIds.length <= 4 &&
+        knowledge.citedChunkIds.every((id) =>
+          knowledge.usedChunkIds.includes(id),
+        ) &&
+        (
+          await currentHits(
+            ctx,
+            knowledge.usedChunkIds,
+            knowledge.workspaceId,
+            a.appId,
+            "customer",
+          )
+        ).length === knowledge.usedChunkIds.length);
+    const ack = validKnowledge
+      ? a.ack
+      : "The published information changed while I was answering. Please ask again so I can use the current version.";
+    const recordEvidence = async (
+      caseId: Id<"cases">,
+      messageId: Id<"messages">,
+    ) => {
+      if (!knowledge || !validKnowledge) return;
+      await ctx.db.insert("knowledgeEvidence", {
+        messageId,
+        caseId,
+        workspaceId: knowledge.workspaceId,
+        appId: a.appId,
+        chunkIds: knowledge.citedChunkIds,
+        usedChunkIds: knowledge.usedChunkIds,
+        ...(knowledge.retrieval ? { retrieval: knowledge.retrieval } : {}),
+        status: knowledge.status,
+        provider: knowledge.provider,
+        model: knowledge.model,
+        inputTokens: knowledge.inputTokens,
+        outputTokens: knowledge.outputTokens,
+        createdAt: Date.now(),
+      });
+    };
     if (
       !a.owner.startsWith(`widget:${a.appId}:`) ||
       !a.body.trim() ||
@@ -44,14 +87,16 @@ export const widgetMessage = mutation({
         role: "customer",
         createdAt: Date.now(),
       });
-      if (a.ack)
-        await ctx.db.insert("messages", {
+      if (ack) {
+        const messageId = await ctx.db.insert("messages", {
           caseId: existing._id,
           author: "Cue",
-          body: a.ack,
+          body: ack,
           role: "cue",
           createdAt: Date.now(),
         });
+        await recordEvidence(existing._id, messageId);
+      }
       await ctx.db.patch("cases", existing._id, { updatedAt: Date.now() });
       await ctx.runMutation(internal.triageQueue.enqueue, {
         caseId: existing._id,
@@ -68,8 +113,18 @@ export const widgetMessage = mutation({
       title: a.title,
       body: a.initialBody,
       sourceUrl: a.sourceUrl,
-      ack: a.ack,
+      ack,
     });
+    if (ack) {
+      const message = await ctx.db
+        .query("messages")
+        .withIndex("by_caseId_and_role_and_createdAt", (q) =>
+          q.eq("caseId", caseId).eq("role", "cue"),
+        )
+        .order("desc")
+        .first();
+      if (message) await recordEvidence(caseId, message._id);
+    }
     return { caseId, created: true };
   },
 });

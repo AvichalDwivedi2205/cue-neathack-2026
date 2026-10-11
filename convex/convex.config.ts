@@ -11,5 +11,6 @@ const app = defineApp({
   },
 });
 app.use(workpool, { name: "triagePool" });
+app.use(workpool, { name: "knowledgePool" });
 app.use(agent);
 export default app;

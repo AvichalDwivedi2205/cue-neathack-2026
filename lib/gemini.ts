@@ -12,7 +12,7 @@ import {
 } from "./reply-policy";
 export const geminiReady = () =>
   !!(process.env.GOOGLE_CLOUD_PROJECT || process.env.GEMINI_API_KEY);
-export function client() {
+export function client(instrument = true) {
   if (!geminiReady())
     throw new Error("Gemini needs a selected Google Cloud project or API key");
   const model = process.env.GEMINI_API_KEY
@@ -23,7 +23,7 @@ export function client() {
         location: process.env.GOOGLE_CLOUD_LOCATION || "global",
         httpOptions: { timeout: 30000 },
       });
-  return instrumentModel(model, !process.env.GEMINI_API_KEY);
+  return instrument ? instrumentModel(model, !process.env.GEMINI_API_KEY) : model;
 }
 // Verified against https://ai.google.dev/gemini-api/docs/audio.
 // Audio is sent for this turn only; Cue does not persist the recording.

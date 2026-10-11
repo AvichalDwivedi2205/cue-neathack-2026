@@ -10,7 +10,9 @@ import { api, db, secret } from "@/lib/server-store";
 import { saveAttachment } from "@/lib/attachment";
 import { triage } from "@/lib/triage";
 import { supportProgress } from "@/lib/support-progress";
-import { draft, geminiReady } from "@/lib/gemini";
+import { geminiReady } from "@/lib/gemini";
+import { answerKnowledge, type KnowledgeAnswer } from "@/lib/knowledge-answer";
+import { KNOWLEDGE_WORKSPACE } from "@/lib/knowledge-policy";
 import { fallbackReply } from "@/lib/reply-policy";
 const input = z.object({
   action: z.enum(["session", "read", "message"]),
@@ -50,6 +52,15 @@ export async function POST(request: Request) {
         secret: auth,
         owner,
       });
+      const evidence = previous?.case
+        ? await store.query(api.knowledge.widgetEvidence, {
+            secret: auth,
+            workspaceId: KNOWLEDGE_WORKSPACE,
+            appId: app.id,
+            owner,
+            caseId: previous.case._id,
+          })
+        : [];
       return Response.json(
         {
           name: app.name,
@@ -70,6 +81,8 @@ export async function POST(request: Request) {
                 body: m.body,
                 author: m.author,
                 role: m.role,
+                citations:
+                  evidence.find((e) => e.messageId === m._id)?.citations || [],
               })) || [],
         },
         { headers: { "cache-control": "no-store" } },
@@ -92,9 +105,15 @@ export async function POST(request: Request) {
       }),
     };
     let ack = fallbackReply({ ...replyContext.conversation, ...replyContext });
-    if (geminiReady())
+    let knowledge: KnowledgeAnswer | undefined;
+    if (geminiReady() || process.env.LITELLM_API_KEY)
       try {
-        ack = await draft(replyContext);
+        knowledge = await answerKnowledge(
+          app.id,
+          { ...replyContext.conversation, ...replyContext },
+          {},
+        );
+        ack = knowledge.text;
       } catch {}
     const { caseId: id, created } = await store.mutation(
       api.intake.widgetMessage,
@@ -108,6 +127,21 @@ export async function POST(request: Request) {
         initialBody: b.text,
         sourceUrl: context,
         ack,
+        ...(knowledge
+          ? {
+              knowledge: {
+                workspaceId: KNOWLEDGE_WORKSPACE,
+                usedChunkIds: knowledge.hits.map((h) => h._id),
+                citedChunkIds: knowledge.citedIds,
+                status: knowledge.status,
+                provider: knowledge.provider,
+                model: knowledge.model,
+                inputTokens: knowledge.inputTokens,
+                outputTokens: knowledge.outputTokens,
+                retrieval: knowledge.retrieval,
+              },
+            }
+          : {}),
       },
     );
     if (b.attachment) await saveAttachment(b.attachment, owner, id);

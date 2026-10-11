@@ -41,6 +41,13 @@
       author.textContent = m.author;
       body.textContent = m.body;
       box.append(author, body);
+      for (const source of m.citations || []) {
+        const detail = document.createElement("details"), label = document.createElement("summary"), excerpt = document.createElement("p");
+        detail.className = "source-card";
+        label.textContent = source.title + (source.page ? " · page " + source.page : " · " + source.heading);
+        excerpt.textContent = source.excerpt;
+        detail.append(label, excerpt); box.append(detail);
+      }
       messages.append(box);
     }
     if (!data.messages.length) {

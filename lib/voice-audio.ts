@@ -1,5 +1,5 @@
 export const VOICE_DISCLOSURE =
-  "You are speaking with Cue, an AI assistant. Audio is sent to Google Gemini for transcription; replies are sent to Google Cloud for speech. Transcripts and replies are saved in your support case; Cue does not store raw audio. You can end the session at any time.";
+  "You are speaking with Cue, an AI assistant. Audio is sent to Google Gemini for transcription; transcripts may be processed by Cue's configured AI provider (Google or LiteLLM). Replies are sent to Google Cloud for speech. Transcripts and replies are saved in your support case; Cue does not store raw audio. You can end the session at any time.";
 export function publicVoiceError(error: unknown) {
   const data = (error as { data?: unknown } | null)?.data;
   const message =

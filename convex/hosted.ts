@@ -18,7 +18,7 @@ async function dispatch(body: unknown) {
   const response = await fetch(origin.origin + "/api/background", {
     method: "POST",
     redirect: "error",
-    signal: AbortSignal.timeout(55000),
+    signal: AbortSignal.timeout((body as { action?: string }).action === "knowledge" ? 240000 : 55000),
     headers: {
       authorization: "Bearer " + env.CUE_DEMO_SECRET,
       "content-type": "application/json",
@@ -68,4 +68,9 @@ export const workspaceAnswer = internalAction({
     await dispatch({ action: "workspace-answer", commandId: a.commandId });
     return null;
   },
+});
+export const knowledge = internalAction({
+  args: { sourceId: v.id("knowledgeSources"), versionId: v.id("knowledgeVersions") },
+  returns: v.null(),
+  handler: async (_ctx, a) => { await dispatch({ action: "knowledge", ...a }); return null; },
 });

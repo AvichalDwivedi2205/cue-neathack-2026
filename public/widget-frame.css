@@ -110,3 +110,7 @@ form > div {
   font-size: 11px;
   margin-top: 5px;
 }
+/* Published excerpts are rendered as text, never document HTML. */
+.source-card { margin-top: 10px; padding: 9px 11px; border: 1px solid #bbc8be; border-radius: 8px; background: #f0f5f1; color: #243e2e; font-size: 12px; }
+.source-card summary { cursor: pointer; font-weight: 600; }
+.source-card p { white-space: pre-wrap; margin-top: 8px; line-height: 1.5; }

@@ -15,6 +15,8 @@ Support reports are saved, classified and linked to issues. Cue can run a scoped
 
 The retained upload run has a real coding session, independently checked patch and approved release. Fresh neatlogs evidence includes actual Gemini support/triage/specification/Growth calls and a temporary-copy replay of the upload regression. The replay applies the known correction; it is not a new autonomous coding run. Growth activation evidence is controlled; no organic acquisition or paying customers are claimed.
 
+Company context is now managed in [Knowledge](https://cue.latchgrid.in/knowledge): FAQs, pasted text, TXT/Markdown/PDF/DOCX uploads, public website pages and public GitHub documents. Reviewed publication controls what the registered app can retrieve. Typed and spoken widget answers cite current published sources; internal sources remain available to staff only. Gemini Flash is the default, with the claimed LiteLLM team key ready for an explicit later switch. [Setup, scope and held-out evaluation](docs/company-knowledge.md) describe the current single-company pilot and remaining connector limits.
+
 ## Run locally
 
 Requires Node 24+, npm, a Convex development deployment and FFmpeg for voice uploads. Install the Codex CLI and sign in if running coding investigations. For Gemini use Application Default Credentials with a Google Cloud project, or a Gemini API key.
@@ -52,3 +54,5 @@ Crustdata customer research was added in source commit `a4c3394`, with final rev
 [company shortlist](https://cue.latchgrid.in/cue#/growth/prospects) requires
 operator access; [setup and limits](docs/crustdata-customer-research.md) explain
 its company-only data, budget reservations and unverified buying intent.
+
+Company knowledge and the widget citation integration derive from source commits `e2ee82e` through `5d778a8` on October 12, 2026. The existing demo video is unchanged.

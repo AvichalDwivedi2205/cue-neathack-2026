@@ -38,6 +38,8 @@ export async function design(name: "bloom" | "cue") {
   );
   if (name === "cue")
     html = html
+      .replace('href="#/${k}"', 'href="${k === \'knowledge\' ? \'/knowledge\' : \'#/\' + k}"')
+      .replace("['integrations', 'Integrations', 'plug', '']", "['knowledge', 'Knowledge', 'bulb', ''], ['integrations', 'Integrations', 'plug', '']")
       .replace("const gLink = o => ", "let gLink = o => ")
       .replace(
         "g.state === 'empty' || (!g.opps.length && !g.campaigns.length)",

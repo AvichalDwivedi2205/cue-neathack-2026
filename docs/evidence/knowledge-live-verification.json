@@ -1,0 +1,22 @@
+{
+  "verifiedAt": "2026-10-11T21:44:54.483Z",
+  "app": "Bloom",
+  "fixture": "Generated audio, not a customer recording or demo narration",
+  "question": "What is the photo upload limit?",
+  "transcript": "What is the photo upload limit",
+  "reply": "Bloom accepts JPG, PNG and WebP photos up to 5 MB. GIF and HEIC files are not accepted; convert them to JPG, PNG or WebP before uploading.",
+  "audioProvider": "google-cloud",
+  "audioBytes": 50496,
+  "sourceTitles": ["Photo upload limits"],
+  "internalIsolation": {
+    "staffSourceTitles": ["Cue repository guide"],
+    "customerPassages": 0
+  },
+  "checks": {
+    "voiceTranscription": true,
+    "approvedFaqReply": true,
+    "replyAudio": true,
+    "persistedSourceCard": true,
+    "internalCustomerExclusion": true
+  }
+}

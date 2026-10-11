@@ -6,6 +6,8 @@ import { api, db, secret } from "@/lib/server-store";
 import { readIntegrations } from "@/lib/integration-config";
 import { verifyWidgetSession, widgetRateLimit } from "@/lib/widget-session";
 import { draft, geminiReady, transcribeAudio } from "@/lib/gemini";
+import { answerKnowledge } from "@/lib/knowledge-answer";
+import { KNOWLEDGE_WORKSPACE } from "@/lib/knowledge-policy";
 import { VOICE_DISCLOSURE, publicVoiceError } from "@/lib/voice-audio";
 import { decodeVoiceAudio } from "@/lib/voice-decoder";
 import { triage } from "@/lib/triage";
@@ -104,22 +106,52 @@ export async function POST(request: NextRequest) {
       owner,
     });
     phase = "reply";
-    const reply = await draft({
+    const context = {
+      ...(conversation?.case._id === session.caseId ? conversation : {}),
       conversation:
         conversation?.case._id === session.caseId ? conversation : null,
       appName,
-      channel: "chat",
-      medium: "voice",
+      channel: "chat" as const,
+      medium: "voice" as const,
       message: transcript,
-    });
+    };
+    const knowledge = appId
+      ? await answerKnowledge(appId, context, {})
+      : undefined;
+    let reply = knowledge?.text || (await draft(context));
     phase = "persist";
     const caseId = await store.mutation(api.voice.finish, {
       secret: auth,
       ...claimed,
       transcript,
       reply,
+      ...(knowledge
+        ? {
+            knowledge: {
+              workspaceId: KNOWLEDGE_WORKSPACE,
+              usedChunkIds: knowledge.hits.map((h) => h._id),
+              citedChunkIds: knowledge.citedIds,
+              status: knowledge.status,
+              provider: knowledge.provider,
+              model: knowledge.model,
+              inputTokens: knowledge.inputTokens,
+              outputTokens: knowledge.outputTokens,
+              retrieval: knowledge.retrieval,
+            },
+          }
+        : {}),
     });
     claimed = undefined;
+    if (knowledge) {
+      const saved = await store.query(api.voice.turn, {
+        secret: auth,
+        owner,
+        sessionId,
+        key,
+      });
+      if (!saved) throw new Error("Voice reply was not saved");
+      reply = saved.reply;
+    }
     phase = "triage";
     if (!session.caseId) after(() => triage(caseId));
     return Response.json(

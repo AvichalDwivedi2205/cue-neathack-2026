@@ -7,8 +7,10 @@ import type { Id } from "@/convex/_generated/dataModel";
 import { randomUUID } from "node:crypto";
 import { processGrowth } from "@/lib/growth";
 import { answerWorkspace } from "@/lib/workspace-answer";
+import { indexKnowledge } from "@/lib/knowledge-embedding";
 export const runtime = "nodejs";
 const input = z.discriminatedUnion("action", [
+  z.object({ action: z.literal("knowledge"), sourceId: z.string().min(1).max(100), versionId: z.string().min(1).max(100) }).strict(),
   z
     .object({
       action: z.literal("workspace-answer"),
@@ -50,7 +52,9 @@ export async function POST(request: Request) {
     const parsed = input.safeParse(JSON.parse(raw));
     if (!parsed.success)
       return Response.json({ error: "Invalid job" }, { status: 400 });
-    if (parsed.data.action === "workspace-answer")
+    if (parsed.data.action === "knowledge")
+      await indexKnowledge(parsed.data.sourceId as Id<"knowledgeSources">, parsed.data.versionId as Id<"knowledgeVersions">);
+    else if (parsed.data.action === "workspace-answer")
       await answerWorkspace(parsed.data.commandId as Id<"agentCommands">);
     else if (parsed.data.action === "growth")
       await processGrowth(parsed.data.receiptId as Id<"growthReceipts">);

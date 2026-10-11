@@ -21,7 +21,7 @@ let tracingEnabled = false;
 // Keep the numeric usage fields intact so cost and latency remain inspectable.
 export function redactTelemetry(value: unknown, key = ""): unknown {
   if (
-    /^((api|private)[_-]?key|authorization|secret|password|cookie|(access|refresh|bearer|api)[_-]?token|audioContent|inlineData|fileData)$/i.test(
+    /^((api|private)[_-]?key|authorization|secret|password|cookie|(access|refresh|bearer|api)[_-]?token|audioContent|inlineData|fileData|groundingDocuments|knowledgeContext)$/i.test(
       key,
     )
   )

@@ -22,6 +22,9 @@ import type * as growthTasks from "../growthTasks.js";
 import type * as hosted from "../hosted.js";
 import type * as intake from "../intake.js";
 import type * as jobs from "../jobs.js";
+import type * as knowledge from "../knowledge.js";
+import type * as knowledgeInternal from "../knowledgeInternal.js";
+import type * as knowledgeSchema from "../knowledgeSchema.js";
 import type * as prospectResearch from "../prospectResearch.js";
 import type * as prospectSchema from "../prospectSchema.js";
 import type * as prospects from "../prospects.js";
@@ -54,6 +57,9 @@ declare const fullApi: ApiFromModules<{
   hosted: typeof hosted;
   intake: typeof intake;
   jobs: typeof jobs;
+  knowledge: typeof knowledge;
+  knowledgeInternal: typeof knowledgeInternal;
+  knowledgeSchema: typeof knowledgeSchema;
   prospectResearch: typeof prospectResearch;
   prospectSchema: typeof prospectSchema;
   prospects: typeof prospects;
@@ -94,5 +100,6 @@ export declare const internal: FilterApi<
 
 export declare const components: {
   triagePool: import("@convex-dev/workpool/_generated/component.js").ComponentApi<"triagePool">;
+  knowledgePool: import("@convex-dev/workpool/_generated/component.js").ComponentApi<"knowledgePool">;
   agent: import("@convex-dev/agent/_generated/component.js").ComponentApi<"agent">;
 };

@@ -1,6 +1,6 @@
 # Cue · neatHack verification
 
-Verified October 11, 2026. Required sponsor completion is **neatlogs: done;
+Updated October 12, 2026. Required sponsor completion is **neatlogs: done;
 Entire: done; cfo.ai: done**. All three required sponsors have actual usage
 evidence. Submission publication remains a separate step.
 
@@ -12,9 +12,13 @@ evidence. Submission publication remains a separate step.
 - Crustdata integration: source commit `a4c3394`, with website review and layout
   fixes in `918eb80` and final release
   `2ec885ecd4121d54b4c94552f2b73c4dce4ea428`.
-- Hosted Cue: <https://cue.latchgrid.in>; Cloud Run revision `cue-00030-4rm`,
+- Company knowledge: source commits `e2ee82e` through
+  `5d778a808be77e589417208b002f93f2b187c899`. Bloom's installed source-card
+  renderer is source commit `f15b664` and Vercel deployment
+  `dpl_9K9emwAdjFAdCdyuKvF2g9R15tki`.
+- Hosted Cue: <https://cue.latchgrid.in>; Cloud Run revision `cue-00034-fm9`,
   Ready and serving 100% of traffic. Container digest
-  `sha256:5f64efb1a773cd92b688ae7bb3578a15422f667bf3fd39e20b2796658ab99de2`.
+  `sha256:0a86b674d375b88067cec78411a7ad9866782a567654a4404727087eb2c6e0e8`.
 - Public checks passed: secure customer cookie; exact 5 MiB acceptance and
   one-byte-over rejection; persisted photo storage; denied foreign-origin
   deletion; authenticated operator/integration endpoints; WorkOS PKCE callback.
@@ -29,6 +33,24 @@ build. The earlier public tracing snapshot passed all 306 tests. Production
 dependency audit from that snapshot:
 12 moderate advisories, zero high or critical. This is not a clean-audit claim.
 
+The October 12 company-knowledge release adds FAQs, pasted text, file imports,
+public websites and public GitHub documents with reviewed publication,
+app-scoped keyword/vector retrieval and cited typed/spoken widget answers.
+Gemini remains the default. The LiteLLM team claim is complete: the original
+shared allocation was $20, with the key stored only in the runtime secret.
+Its remaining balance is not verified; use it only by explicitly selecting a
+LiteLLM model. Cue's **332 tests in 49 files** and Bloom's **16 tests in 4 files**,
+both linters, type checks and production builds passed. The eight relevant
+knowledge/API tests and type check passed again after restoring Gemini as the
+default. A live Gemini question returned the correct 5 MB limit, cited three
+published sources and reported 1,325 answer tokens. The registered-app voice
+fixture returned the approved FAQ, playable Google speech audio and a persisted
+source card. Staff retrieval found the internal repository context; customer
+retrieval returned zero passages for that application. See
+[company knowledge and retained evaluation results](company-knowledge.md) and
+[sanitised live verification](evidence/knowledge-live-verification.json).
+The existing 2:29 video was not changed by this release.
+
 ## neatlogs
 
 SDK `1.1.28` initializes once per server/worker process. Official Gemini/Vertex
@@ -40,18 +62,18 @@ The local Doctor and an authenticated finalized probe passed. The probe's
 synthetic 11/7/18 token counts are diagnostic values, not measured model usage.
 Application calls below are separate actual executions.
 
-| Evidence | Exact trace ID | Observed result |
-|---|---|---|
-| Upload replay before correction | `a7a8ec6c20758403387c477f8c06b328` | One workflow, one tool; tool ERROR; three acceptance failures reproduced |
-| Upload replay after correction | `f2e68c85961368df8b7e2bdf86ad4f37` | One workflow, one tool; tool OK; all eight independent HTTP checks passed |
-| Controlled support call | `7b0a2dc2f8d99f7eb704c869e0f84d5e` | Workflow → agent → one Gemini LLM; SUCCESS; 778 input + 23 output = 801 tokens |
-| Controlled triage call | `8f9e5f5451f06c807f1e214294b34374` | Finalized actual classification result |
-| Controlled specification call | `5be5a0d7ad938161506e354c5d5d9141` | Explicit all-word and ownership constraints preserved in this example |
-| Controlled Growth calls | `2b64c131c0335a844482ee6999f8d2eb` | Qualification and an unsent, capability-grounded draft |
-| Hosted Bloom → Cue support | `faae69efef9fae80cec287b7d8f2d9f3` | One workflow and one actual Gemini call; 807 total tokens; saved product-review reply |
-| Hosted report triage | `f2a4c72067e111716660cfe671ac4ee0` | Finalized three-span trace following the same controlled hosted request |
-| Crustdata direct action | `89e926a915fab8a022aed17d08155e7e` | Five exact-ID company records; 11.15 reported credits; workflow with search/enrichment tool spans |
-| Crustdata hosted UI search | `3adc1f7bab98003dcffd94bdd2ee476d` | Five more exact-ID records; 11.15 reported credits; earlier review state preserved |
+| Evidence                        | Exact trace ID                     | Observed result                                                                                   |
+| ------------------------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Upload replay before correction | `a7a8ec6c20758403387c477f8c06b328` | One workflow, one tool; tool ERROR; three acceptance failures reproduced                          |
+| Upload replay after correction  | `f2e68c85961368df8b7e2bdf86ad4f37` | One workflow, one tool; tool OK; all eight independent HTTP checks passed                         |
+| Controlled support call         | `7b0a2dc2f8d99f7eb704c869e0f84d5e` | Workflow → agent → one Gemini LLM; SUCCESS; 778 input + 23 output = 801 tokens                    |
+| Controlled triage call          | `8f9e5f5451f06c807f1e214294b34374` | Finalized actual classification result                                                            |
+| Controlled specification call   | `5be5a0d7ad938161506e354c5d5d9141` | Explicit all-word and ownership constraints preserved in this example                             |
+| Controlled Growth calls         | `2b64c131c0335a844482ee6999f8d2eb` | Qualification and an unsent, capability-grounded draft                                            |
+| Hosted Bloom → Cue support      | `faae69efef9fae80cec287b7d8f2d9f3` | One workflow and one actual Gemini call; 807 total tokens; saved product-review reply             |
+| Hosted report triage            | `f2a4c72067e111716660cfe671ac4ee0` | Finalized three-span trace following the same controlled hosted request                           |
+| Crustdata direct action         | `89e926a915fab8a022aed17d08155e7e` | Five exact-ID company records; 11.15 reported credits; workflow with search/enrichment tool spans |
+| Crustdata hosted UI search      | `3adc1f7bab98003dcffd94bdd2ee476d` | Five more exact-ID records; 11.15 reported credits; earlier review state preserved                |
 
 Trace URLs use `https://app.neatlogs.com/traces/<trace-id>` and require project
 access. Screenshots in [evidence](evidence/) provide inspectable public proof.

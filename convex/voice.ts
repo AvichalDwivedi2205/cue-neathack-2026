@@ -4,6 +4,8 @@ import { api, internal } from "./_generated/api";
 import { authorize } from "./cue";
 import schema from "./schema";
 import type { Doc, Id } from "./_generated/dataModel";
+import { knowledgeReply } from "./knowledgeSchema";
+import { currentHits } from "./knowledge";
 
 function active(session: Doc<"voiceSessions"> | null, owner: string) {
   if (!session || session.owner !== owner)
@@ -125,6 +127,7 @@ export const finish = mutation({
     key: v.string(),
     transcript: v.string(),
     reply: v.string(),
+    knowledge: v.optional(knowledgeReply),
   },
   returns: v.id("cases"),
   handler: async (ctx, a) => {
@@ -146,6 +149,24 @@ export const finish = mutation({
       a.reply.length > 12000
     )
       throw new ConvexError("Invalid voice transcript");
+    const k = a.knowledge;
+    const validKnowledge =
+      !k ||
+      (!!s.appId &&
+        k.usedChunkIds.length <= 4 &&
+        k.citedChunkIds.every((id) => k.usedChunkIds.includes(id)) &&
+        (
+          await currentHits(
+            ctx,
+            k.usedChunkIds,
+            k.workspaceId,
+            s.appId,
+            "customer",
+          )
+        ).length === k.usedChunkIds.length);
+    const reply = validKnowledge
+      ? a.reply
+      : "The published information changed while I was answering. Please ask again so I can use the current version.";
     let id: Id<"cases">;
     if (s.caseId) {
       const c = await ctx.db.get("cases", s.caseId);
@@ -154,7 +175,7 @@ export const finish = mutation({
       id = c._id;
       for (const [role, author, body] of [
         ["customer", s.customer, a.transcript],
-        ["cue", "Cue", a.reply],
+        ["cue", "Cue", reply],
       ])
         await ctx.db.insert("messages", {
           caseId: id,
@@ -173,16 +194,41 @@ export const finish = mutation({
         title: a.transcript.slice(0, 100),
         body: a.transcript,
         channel: "chat",
-        ack: a.reply,
+        ack: reply,
       });
     }
     await ctx.db.insert("voiceTurns", {
       sessionId: s._id,
       key: a.key,
       transcript: a.transcript,
-      reply: a.reply,
+      reply,
       createdAt: Date.now(),
     });
+    if (k && validKnowledge && s.appId) {
+      const message = await ctx.db
+        .query("messages")
+        .withIndex("by_caseId_and_role_and_createdAt", (q) =>
+          q.eq("caseId", id).eq("role", "cue"),
+        )
+        .order("desc")
+        .first();
+      if (message)
+        await ctx.db.insert("knowledgeEvidence", {
+          messageId: message._id,
+          caseId: id,
+          workspaceId: k.workspaceId,
+          appId: s.appId,
+          chunkIds: k.citedChunkIds,
+          usedChunkIds: k.usedChunkIds,
+          status: k.status,
+          provider: k.provider,
+          model: k.model,
+          inputTokens: k.inputTokens,
+          outputTokens: k.outputTokens,
+          createdAt: Date.now(),
+          ...(k.retrieval ? { retrieval: k.retrieval } : {}),
+        });
+    }
     await ctx.db.patch("voiceSessions", s._id, {
       caseId: id,
       turnCount: s.turnCount + 1,
@@ -199,6 +245,27 @@ export const finish = mutation({
       });
     await ctx.runMutation(internal.triageQueue.enqueue, { caseId: id });
     return id;
+  },
+});
+export const turn = query({
+  args: {
+    secret: v.string(),
+    owner: v.string(),
+    sessionId: v.id("voiceSessions"),
+    key: v.string(),
+  },
+  returns: v.union(v.null(), schema.doc("voiceTurns")),
+  handler: async (ctx, a) => {
+    authorize(a.secret);
+    const s = await ctx.db.get("voiceSessions", a.sessionId);
+    if (!s || s.owner !== a.owner)
+      throw new ConvexError("Voice session not found");
+    return ctx.db
+      .query("voiceTurns")
+      .withIndex("by_sessionId_and_key", (q) =>
+        q.eq("sessionId", s._id).eq("key", a.key),
+      )
+      .unique();
   },
 });
 export const end = mutation({
