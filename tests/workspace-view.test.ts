@@ -60,7 +60,9 @@ function elements(
 test("workspace navigation reaches Knowledge, setup and customer research with one active link", async () => {
   const { controls } = await workspaceBrowser("bloom");
   controls.state.sec = "growth";
-  controls.state.id = "prospects";
+  // The router stores the Growth subpage in tab and clears the issue ID.
+  controls.state.id = null;
+  controls.state.growth.tab = "prospects";
   const links = elements(parse(controls.sidebar())).filter(
     (n) => n.tagName === "a",
   );

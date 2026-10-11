@@ -53,7 +53,7 @@ export async function design(name: "bloom" | "cue") {
       )
       .replace(
         "const nav = [['home'",
-        "const navActive = k => k === 'prospects' ? S.sec === 'growth' && S.id === 'prospects' : S.sec === k && !(k === 'growth' && S.id === 'prospects'); const nav = [['home'",
+        "const navActive = k => k === 'prospects' ? S.sec === 'growth' && S.growth?.tab === 'prospects' : S.sec === k && !(k === 'growth' && S.growth?.tab === 'prospects'); const nav = [['home'",
       )
       .replaceAll("S.sec === k ?", "navActive(k) ?")
       .replace("const gLink = o => ", "let gLink = o => ")
