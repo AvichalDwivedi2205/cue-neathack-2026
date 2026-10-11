@@ -29,9 +29,21 @@ export function renderCueLanding(source: string) {
   const publicNodes = elements(landing);
   for (const node of publicNodes) {
     const href = attr(node, "href");
-    if (href?.value === "#/inbox") href.value = "/cue#/home";
-    if (href?.value === "#/") href.value = "/";
+    if (href?.value.startsWith("#/"))
+      href.value = href.value === "#/" ? "/" : "/cue" + href.value;
+    // A static example issue ID cannot identify a live team's issue.
+    if (href?.value === "/cue#/issues/ISS-14") href.value = "/cue#/issues";
+    if (href?.value === "bloom.html")
+      href.value = process.env.CUE_BLOOM_PUBLIC_URL
+        ? new URL(process.env.CUE_BLOOM_PUBLIC_URL).origin + "/"
+        : "/bloom";
   }
+  const story = publicNodes.find((n) => attr(n, "id")?.value === "story");
+  if (story)
+    story.attrs.push({
+      name: "aria-label",
+      value: "Illustrative product workflow",
+    });
 
   let content = serializeOuter(landing);
   const ticker = publicNodes.find((n) => attr(n, "id")?.value === "ticker");
@@ -60,6 +72,10 @@ export function renderCueLanding(source: string) {
     )
     .join("");
   content = content
+    .replace(
+      "Sample workspace · no sign-up · every sample is labeled",
+      "Illustrative workflow · workspace sign-in required",
+    )
     .replace(
       serializeOuter(ticker),
       `<div class="ticker-list" id="ticker">${examples}</div>`,
@@ -112,5 +128,5 @@ export function renderCueLanding(source: string) {
     "Cue — Bloom workspace",
     "Cue — customer problems to verified fixes",
   );
-  return `<!doctype html><html lang="en"><head>${publicHead}<link rel="icon" href="/cue-icon.svg"><style>html{scroll-behavior:smooth;scroll-padding-top:80px} .ticker-list{height:auto;min-height:270px} .ticker-list::after{display:none} .t-item .t-text{white-space:normal} .t-tag{white-space:nowrap} .lnav{border-bottom-color:var(--line)} #marquee>span[aria-hidden]{display:contents} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style></head><body>${content}</body></html>`;
+  return `<!doctype html><html lang="en"><head>${publicHead}<link rel="icon" href="/cue-icon.svg"><style>html{scroll-behavior:smooth;scroll-padding-top:80px} .ticker-list{height:auto;min-height:270px} .ticker-list::after{display:none} .t-item .t-text{white-space:normal} .t-tag{white-space:nowrap} .lnav{border-bottom-color:var(--line)} #marquee>span[aria-hidden]{display:contents} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}</style><noscript><style>.chapter{opacity:1}.stage-label + .scene{opacity:1;transform:none}</style></noscript></head><body>${content}<script src="/cue-landing.js" defer></script></body></html>`;
 }

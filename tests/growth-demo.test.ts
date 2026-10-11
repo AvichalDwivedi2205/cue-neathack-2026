@@ -30,7 +30,7 @@ async function harness(storage = new Map<string, string>()) {
     },
   });
   const executable = script.replace(
-    /hydrateIcons\(\);\s*initLanding\(\);\s*route\(\);\s*\}\)\(\);\s*$/,
+    /hydrateIcons\(\);\s*initLanding\(\);\s*(?:initStory\(\);\s*)?route\(\);\s*\}\)\(\);\s*$/,
     `
     S.ag.appId = 'bloom'; S.growth.opps = [];
     growthData = {opportunities: [], drafts: [], touches: [], browsers: []};

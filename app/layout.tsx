@@ -1,23 +1,29 @@
 import type { Metadata } from "next";
 import { AuthKitProvider } from "@workos-inc/authkit-nextjs/components";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cueSans = Inter({
+  variable: "--font-cue-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const cueMono = JetBrains_Mono({
+  variable: "--font-cue-mono",
   subsets: ["latin"],
+});
+const cueSerif = Instrument_Serif({
+  variable: "--font-cue-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: "Cue",
   description: "Customer problems to verified fixes",
   icons: {
-    icon: "/convex.svg",
+    icon: "/cue-icon.svg",
   },
 };
 
@@ -29,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${cueSans.variable} ${cueMono.variable} ${cueSerif.variable}`}
       >
         <AuthKitProvider>{children}</AuthKitProvider>
       </body>

@@ -38,8 +38,24 @@ export async function design(name: "bloom" | "cue") {
   );
   if (name === "cue")
     html = html
-      .replace('href="#/${k}"', 'href="${k === \'knowledge\' ? \'/knowledge\' : \'#/\' + k}"')
-      .replace("['integrations', 'Integrations', 'plug', '']", "['knowledge', 'Knowledge', 'bulb', ''], ['integrations', 'Integrations', 'plug', '']")
+      .replace(
+        'href="#/${k}"',
+        "href=\"${k === 'knowledge' ? '/knowledge' : k === 'setup' ? '/setup' : k === 'prospects' ? '#/growth/prospects' : '#/' + k}\"",
+      )
+      .replace(
+        "['integrations', 'Integrations', 'plug', '']",
+        "['knowledge', 'Knowledge', 'bulb', ''], ['setup', 'App setup', 'widget', ''], ['prospects', 'Cue customers', 'search', ''], ['integrations', 'Integrations', 'plug', '']",
+      )
+      .replace("['Grow', ['growth']]", "['Grow', ['growth', 'prospects']]")
+      .replace(
+        "['knowledge', 'integrations', 'settings']",
+        "['knowledge', 'integrations', 'setup', 'settings']",
+      )
+      .replace(
+        "const nav = [['home'",
+        "const navActive = k => k === 'prospects' ? S.sec === 'growth' && S.id === 'prospects' : S.sec === k && !(k === 'growth' && S.id === 'prospects'); const nav = [['home'",
+      )
+      .replaceAll("S.sec === k ?", "navActive(k) ?")
       .replace("const gLink = o => ", "let gLink = o => ")
       .replace(
         "g.state === 'empty' || (!g.opps.length && !g.campaigns.length)",

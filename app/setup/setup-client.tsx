@@ -142,12 +142,20 @@ export function SetupClient({ origin }: { origin: string }) {
     `<script async src="${origin}/widget.js" data-app="${app.id}"></script>`;
   return (
     <main className="setup">
-      <a href="/cue#/integrations">← Back to Cue</a>
-      <h1>Connect your channels</h1>
+      <h1>App setup</h1>
       <p className="lede">
         Install Cue in your app. Bring support conversations and engineering
         work into one workspace.
       </p>
+      <nav className="setup-sections" aria-label="Setup sections">
+        <a href="#widget">Widget</a>
+        <a href="#x">X</a>
+        <a href="#slack">Slack</a>
+        <a href="#team">Team</a>
+        <a href="#coding">Repositories</a>
+        <a href="#email">Email</a>
+        <a href="#codex">Worker</a>
+      </nav>
       <div className="setup-notice" role="status">
         {message ||
           "Credentials stay on the server. Connection checks show what is working."}

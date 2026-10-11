@@ -233,22 +233,8 @@ export function KnowledgeClient() {
   });
   return (
     <main className="knowledge-shell">
-      <header className="knowledge-top">
-        <a className="knowledge-brand" href="/cue">
-          ◈ <b>Cue</b>
-        </a>
-        <nav>
-          <a href="/cue#/inbox">Inbox</a>
-          <a href="/knowledge" aria-current="page">
-            Knowledge
-          </a>
-          <a href="/setup">Integrations</a>
-        </nav>
-        <span>Company context</span>
-      </header>
       <div className="knowledge-heading">
         <div>
-          <p className="knowledge-eyebrow">TEACH CUE ABOUT YOUR PRODUCT</p>
           <h1>Knowledge</h1>
           <p>
             Give customers answers grounded in your FAQs, policies and

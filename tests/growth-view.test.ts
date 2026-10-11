@@ -20,7 +20,7 @@ test("assembled Cue bridge initializes against the supplied design bindings", as
   // Exercise every synchronous bridge initializer. DOM boot and provider requests
   // are covered by native deployed checks rather than this isolated harness.
   const executable = script.replace(
-    /hydrateIcons\(\);\s*initLanding\(\);\s*route\(\);\s*\}\)\(\);\s*$/,
+    /hydrateIcons\(\);\s*initLanding\(\);\s*(?:initStory\(\);\s*)?route\(\);\s*\}\)\(\);\s*$/,
     `window.initialized = {
       link: gLink({ link: 'https://cue.test/g/current' }),
       capture: typeof A.gCapture,

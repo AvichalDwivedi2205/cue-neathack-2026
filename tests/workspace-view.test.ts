@@ -1,5 +1,6 @@
 import { expect, test } from "vitest";
 import vm from "node:vm";
+import { parse, type DefaultTreeAdapterTypes } from "parse5";
 import { design } from "../lib/design";
 
 async function workspaceBrowser(selected: string) {
@@ -13,6 +14,7 @@ async function workspaceBrowser(selected: string) {
   const context = vm.createContext({
     window: {},
     document: {
+      querySelector: () => ({ innerHTML: "" }),
       addEventListener: (name: string, fn: (e: unknown) => void) => {
         if (name === "change") changes.push(fn);
       },
@@ -30,9 +32,11 @@ async function workspaceBrowser(selected: string) {
   });
   vm.runInContext(
     script.replace(
-      /hydrateIcons\(\);\s*initLanding\(\);\s*route\(\);\s*\}\)\(\);\s*$/,
+      /hydrateIcons\(\);\s*initLanding\(\);\s*(?:initStory\(\);\s*)?route\(\);\s*\}\)\(\);\s*$/,
       `agRefresh = () => {}; gRerender = () => {};
-     window.controls = { state: S, workspace: loadWorkspace, growth: loadGrowth, action: growthAction }; })();`,
+     window.controls = { state: S, workspace: loadWorkspace, growth: loadGrowth, action: growthAction,
+       sidebar: () => { const el = {innerHTML: ''}; document.querySelector = () => el; renderSidebar(); return el.innerHTML; }
+     }; })();`,
     ),
     context,
   );
@@ -45,6 +49,32 @@ async function workspaceBrowser(selected: string) {
   };
 }
 const flush = () => new Promise((resolve) => setImmediate(resolve));
+function elements(
+  node: DefaultTreeAdapterTypes.Node,
+): DefaultTreeAdapterTypes.Element[] {
+  return [
+    ...("tagName" in node ? [node] : []),
+    ...("childNodes" in node ? node.childNodes.flatMap(elements) : []),
+  ];
+}
+test("workspace navigation reaches Knowledge, setup and customer research with one active link", async () => {
+  const { controls } = await workspaceBrowser("bloom");
+  controls.state.sec = "growth";
+  controls.state.id = "prospects";
+  const links = elements(parse(controls.sidebar())).filter(
+    (n) => n.tagName === "a",
+  );
+  const attribute = (node: DefaultTreeAdapterTypes.Element, name: string) =>
+    node.attrs.find((a) => a.name === name)?.value;
+  expect(links.map((n) => attribute(n, "href"))).toEqual(
+    expect.arrayContaining(["/knowledge", "/setup", "#/growth/prospects"]),
+  );
+  expect(
+    links
+      .filter((n) => attribute(n, "aria-current") === "page")
+      .map((n) => attribute(n, "href")),
+  ).toEqual(["#/growth/prospects"]);
+});
 const snapshot = (id: string) => ({
   app: { id, name: id },
   apps: [{ id, name: id }],

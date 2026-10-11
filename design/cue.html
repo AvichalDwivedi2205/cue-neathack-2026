@@ -253,6 +253,143 @@ svg{flex:none}
 .final h2{margin:0 auto 18px;max-width:760px}
 .lfoot{display:flex;justify-content:space-between;padding:22px clamp(16px,4vw,48px);border-top:1px solid var(--line);font:500 11.5px var(--mono);color:var(--ink-3)}
 
+/* landing v2 — story-driven */
+.l-hero-wrap{position:relative}
+#landing .hero h1{font-size:clamp(42px,5.2vw,72px);line-height:1}
+.hero h1 em{display:inline-block}
+.l-proof{list-style:none;padding:0;margin:34px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);max-width:600px}
+.l-proof li{padding:14px 16px 0 0}
+.l-proof li+li{padding-left:16px;border-left:1px solid var(--line)}
+.l-proof b{display:block;font:400 30px/1 var(--serif);color:var(--ink)}
+.l-proof span{display:block;margin-top:6px;font-size:12px;line-height:1.45;color:var(--ink-3)}
+.l-hero-vis{position:relative}
+.l-float{position:absolute;display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid var(--line);box-shadow:0 14px 30px -14px rgba(20,24,26,.3);font-size:12.5px;color:var(--ink-2);white-space:nowrap;animation:floaty 6s ease-in-out infinite}
+.l-float b{color:var(--ink);font-weight:600}
+.l-float svg{color:var(--accent)}
+.l-float-a{left:-34px;bottom:-18px}
+.l-float-b{right:-18px;top:-16px;animation-delay:-3s}
+.l-float-b svg{color:var(--warn)}
+@keyframes floaty{50%{transform:translateY(-6px)}}
+.l-scrollcue{display:flex;flex-direction:column;align-items:center;gap:10px;margin:0 auto;padding:0 0 36px;width:max-content;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-decoration:none}
+.l-scrollcue span{width:1px;height:36px;background:linear-gradient(var(--line-2),var(--accent));position:relative;overflow:hidden}
+.l-scrollcue span::after{content:'';position:absolute;left:0;top:-12px;width:1px;height:12px;background:var(--accent);animation:drip 1.8s var(--ease) infinite}
+@keyframes drip{to{top:36px}}
+.l-strip{max-width:1240px;margin:0 auto;padding:12px clamp(16px,4vw,48px) 0}
+.l-strip-h{text-align:center;font-size:13px;color:var(--ink-3)}
+.l-strip .marquee{margin-top:16px}
+.l-chip-ic{width:18px;height:18px;border-radius:5px;display:inline-grid;place-items:center;background:var(--sunken);color:var(--ink-2);flex:none}
+.l-chip-ic.x{background:#14181A;color:#fff}
+.fly code,.reply code,.l-msg code,.l-faq code{font:500 .92em var(--mono);background:var(--sunken);padding:1px 5px;border-radius:4px}
+.mini{white-space:nowrap}
+/* scene 8 growth */
+.l-grow{width:min(420px,100%);display:flex;flex-direction:column;gap:10px}
+.l-xpost,.l-draft{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:13px;line-height:1.5;box-shadow:0 14px 30px -18px rgba(20,24,26,.3);opacity:0;transform:translateY(8px)}
+.l-xpost .fh{display:flex;align-items:center;gap:7px;margin-bottom:6px;font-size:12px;color:var(--ink-3)}
+.l-xpost .fh b{color:var(--ink)}
+.l-cap{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid #cfe5d8;border-radius:12px;background:linear-gradient(180deg,#F1F8F4,#fff);font-size:12.5px}
+.l-cap svg{color:var(--accent);margin-top:1px}
+.l-cap small{display:block;font:11px var(--mono);color:var(--ink-3);margin-top:2px}
+.l-grow .l-cap{opacity:0;transform:translateY(8px)}
+.l-draft-h{display:flex;justify-content:space-between;align-items:center;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-bottom:6px}
+.l-draft-f{display:flex;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px solid var(--sunken);font-size:11.5px;color:var(--ink-3)}
+.scene.on .l-xpost{animation:pop .5s var(--ease) .15s forwards}
+.scene.on .l-grow .l-cap{animation:pop .5s var(--ease) .7s forwards}
+.scene.on .l-draft{animation:pop .5s var(--ease) 1.25s forwards}
+/* scene 9 slack */
+.l-slack{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px -18px rgba(20,24,26,.25);overflow:hidden}
+.l-slack-h{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--line);font-weight:600;font-size:13px}
+.l-msg{display:flex;gap:10px;padding:9px 14px;font-size:13px;opacity:0;transform:translateY(6px)}
+.l-msg b{font-weight:600}.l-msg small{color:var(--ink-3);font-size:11px}
+.l-msg p{margin:2px 0 0;line-height:1.5}
+.l-bot{background:var(--run-t)!important;color:var(--run)}
+.l-act{display:inline-flex;margin-top:6px;font-size:11px;font-weight:600;padding:3px 8px;border-radius:999px;background:var(--sunken);color:var(--ink-2)}
+.l-act.att{background:var(--accent-t);color:var(--accent)}
+.scene.on .l-msg{animation:pop .45s var(--ease) forwards}
+.scene.on .l-msg:nth-child(2){animation-delay:.15s}.scene.on .l-msg:nth-child(3){animation-delay:.8s}.scene.on .l-msg:nth-child(4){animation-delay:1.5s}.scene.on .l-msg:nth-child(5){animation-delay:2.2s}
+/* acts */
+.l-two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center}
+.l-two.rev>:first-child{order:2}
+.l-two .sub{margin-bottom:6px}
+.l-checks{list-style:none;padding:0;margin:22px 0 28px;display:flex;flex-direction:column;gap:12px;max-width:520px}
+.l-checks li{display:flex;gap:10px;font-size:14px;line-height:1.55;color:var(--ink-2)}
+.l-checks li b{color:var(--ink);font-weight:600}
+.l-checks svg{color:var(--accent);margin-top:3px;flex:none}
+.l-frame{border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 40px 80px -40px rgba(20,24,26,.28);overflow:hidden}
+.l-frame-h{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--bg);font:500 11px var(--mono);color:var(--ink-3)}
+.l-frame-h i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.l-frame-h span{margin-left:8px}
+.l-frame-b{padding:18px;display:flex;flex-direction:column;gap:14px}
+.l-steps{display:flex;flex-wrap:wrap;gap:6px}
+.l-steps span{font-size:11.5px;font-weight:500;padding:3px 9px;border-radius:999px;border:1px solid var(--line-2);color:var(--ink-3)}
+.l-steps span.d{border-color:transparent;background:var(--accent-t);color:var(--accent)}
+.l-steps span.on{border-color:var(--accent);color:var(--accent);background:#fff;box-shadow:0 0 0 3px var(--accent-t)}
+.l-q{border-left:3px solid var(--line-2);padding:8px 12px;background:var(--bg);border-radius:0 8px 8px 0;font-size:14px;line-height:1.55}
+.l-q small{display:block;margin-top:6px;font:11px var(--mono);color:var(--ink-3)}
+.l-funnel{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.l-funnel div{padding:10px 12px}
+.l-funnel div+div{border-left:1px solid var(--line)}
+.l-funnel b{display:block;font:400 26px/1 var(--serif)}
+.l-funnel span{font-size:11.5px;color:var(--ink-3)}
+.l-agents{display:flex;flex-direction:column;gap:10px}
+.l-agent{display:flex;align-items:center;gap:12px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:0 14px 30px -22px rgba(20,24,26,.3);transition:transform var(--t2) var(--ease)}
+.l-agent:hover{transform:translateX(4px)}
+.l-agent b{font-size:14px}.l-agent small{display:block;font-size:12.5px;color:var(--ink-3)}
+.l-agent .chip{margin-left:auto}
+.l-ag-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;flex:none;background:var(--sunken)}
+.l-ag-ic.x{background:#14181A;color:#fff}.l-ag-ic.reddit{background:#FDEBE3;color:#D94A1E}.l-ag-ic.growth{background:var(--accent-t);color:var(--accent)}.l-ag-ic.eng{background:var(--run-t);color:var(--run)}
+.l-agent-note{display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;background:var(--sunken);font-size:12.5px;color:var(--ink-2)}
+.l-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:40px}
+.l-tile{position:relative;display:block;padding:26px 24px 30px;background:#FAFAF7;text-decoration:none;transition:background var(--t2)}
+.l-tile:hover{background:#fff}
+.l-tile b{display:block;font:400 26px/1.1 var(--serif);margin:16px 0 6px}
+.l-tile p{margin:0;font-size:13.5px;line-height:1.6;color:var(--ink-2);max-width:320px}
+.l-tile .kbd{position:absolute;top:24px;right:22px;opacity:.7}
+.l-tile-ic{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:var(--accent-t);color:var(--accent);transition:transform var(--t2) var(--ease)}
+.l-tile-ic.v{background:var(--feature-t);color:var(--feature)}
+.l-tile:hover .l-tile-ic{transform:translateY(-3px)}
+.faq-two{align-items:start;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)}
+.l-faq{border-top:1px solid var(--line)}
+.l-faq details{border-bottom:1px solid var(--line)}
+.l-faq summary{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;cursor:pointer;list-style:none;font-size:16px;font-weight:500}
+.l-faq summary::-webkit-details-marker{display:none}
+.l-faq summary svg{color:var(--ink-3);transition:transform var(--t2) var(--ease)}
+.l-faq details[open] summary svg{transform:rotate(45deg);color:var(--accent)}
+.l-faq p{margin:-4px 0 20px;font-size:14.5px;line-height:1.65;color:var(--ink-2);max-width:620px}
+.final{position:relative;overflow:hidden;border-top:1px solid var(--line)}
+.final .grid-bg{mask-image:radial-gradient(ellipse 60% 70% at 50% 50%,#000 20%,transparent 75%)}
+.final h2{position:relative;font:400 clamp(38px,5.4vw,72px)/1.02 var(--serif);letter-spacing:-.02em;margin:18px auto 30px;max-width:860px}
+.final h2 em{font-style:italic;color:var(--accent)}
+.final .eyebrow,.final .hero-ctas,.l-note{position:relative}
+.l-note{margin:18px 0 0;font:500 11.5px var(--mono);color:var(--ink-3)}
+.lfoot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:32px;padding:44px clamp(16px,4vw,48px) 52px;max-width:1240px;margin:0 auto;border-top:0;font:inherit;color:var(--ink-2)}
+#landing>.lfoot{border-top:1px solid var(--line);max-width:none;padding-left:max(clamp(16px,4vw,48px),calc((100% - 1240px)/2 + 48px));padding-right:max(clamp(16px,4vw,48px),calc((100% - 1240px)/2 + 48px))}
+.lf-brand p{margin:10px 0 0;font-size:13px;color:var(--ink-3);max-width:280px;line-height:1.55}
+.lf-col{display:flex;flex-direction:column;gap:8px;font-size:13px}
+.lf-col b{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin-bottom:4px}
+.lf-col a{text-decoration:none;color:var(--ink-2)}
+.lf-col a:hover{color:var(--ink)}
+@media (max-width:960px){
+  #landing .hero{grid-template-columns:minmax(0,1fr)}
+  .l-two,.faq-two{grid-template-columns:1fr;gap:36px}
+  .l-two.rev>:first-child{order:0}
+  .l-tiles{grid-template-columns:1fr 1fr}
+  .l-float-a{left:8px;bottom:-14px}.l-float-b{right:8px}
+  .lfoot{grid-template-columns:1fr 1fr}
+  .lf-brand{grid-column:1/-1}
+}
+@media (max-width:600px){
+  .hero{padding-top:40px;padding-bottom:48px}
+  #landing .hero h1{font-size:clamp(36px,10.5vw,52px)}
+  .l-proof{grid-template-columns:1fr;border-top:0}
+  .l-proof li,.l-proof li+li{padding:12px 0;border-left:0;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:12px}
+  .l-proof b{font-size:24px;min-width:64px}.l-proof span{margin:0}
+  .l-tiles{grid-template-columns:1fr}
+  .l-funnel{grid-template-columns:1fr 1fr}.l-funnel div:nth-child(3){border-left:0}.l-funnel div:nth-child(n+3){border-top:1px solid var(--line)}
+  .story.inline .scene{min-height:300px}
+  .fly{width:86%}
+  .l-float{display:none}
+}
+
 /* ============ APP SHELL ============ */
 #app{display:none;height:100vh;grid-template-columns:232px 1fr;grid-template-rows:52px 1fr}
 #app.show{display:grid}
@@ -961,6 +1098,36 @@ textarea.inp{height:auto;min-height:84px;padding:8px 10px;resize:vertical;line-h
 .ctx-toggle{display:none}
 .back-btn{display:none}
 
+/* revamp: shell + home */
+.sb-grp{display:flex;flex-direction:column;gap:2px}
+.sb-grp+.sb-grp{margin-top:6px}
+.sb-grp:first-of-type{margin-top:2px}
+.sb-keys{display:flex;align-items:center;gap:8px;width:100%;height:30px;padding:0 10px;border-radius:7px;color:var(--sb-mute);font-size:12px;transition:background var(--t1),color var(--t1)}
+.sb-keys:hover{background:var(--sb-active);color:var(--sb-text)}
+.sb-keys .kbd{margin-left:auto;background:transparent;border-color:var(--sb-line);color:var(--sb-mute)}
+.keys{padding:0}
+.keys-h{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 12px 18px;border-bottom:1px solid var(--line);font-size:14px}
+.keys-b{display:grid;grid-template-columns:1fr 1fr;gap:8px 28px;padding:6px 18px 18px;max-height:70vh;overflow:auto}
+.keys h6{margin:14px 0 6px;font:500 10.5px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.kr{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:5px 0;font-size:13px;color:var(--ink-2)}
+.kk{display:flex;gap:4px}
+.home-h h1{font:400 34px/1.1 var(--serif);letter-spacing:-.01em;margin:4px 0 6px}
+.home-date{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3)}
+.loop{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--line);border-radius:var(--r3);background:var(--panel);margin-bottom:16px;overflow:hidden}
+.lp{position:relative;display:flex;flex-direction:column;gap:2px;padding:14px 16px 13px;text-align:left;text-decoration:none;color:var(--ink);transition:background var(--t1)}
+.lp+.lp{border-left:1px solid var(--line)}
+.lp:hover{background:var(--hover)}
+.lp-t{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--ink-2)}
+.lp b{font:400 32px/1.1 var(--serif);margin-top:4px}
+.lp small{font-size:11.5px;color:var(--ink-3)}
+.lp::after{content:'';position:absolute;left:0;right:0;bottom:0;height:2px;background:transparent}
+.lp.run::after{background:var(--run)}.lp.warn::after{background:var(--warn)}.lp.fail::after{background:var(--fail)}.lp.ok::after{background:var(--accent)}
+.lp.run b{color:var(--run)}.lp.warn b{color:var(--warn)}.lp.fail b{color:var(--fail)}.lp.ok b{color:var(--accent)}
+.lp-arrow{position:absolute;right:-8px;top:50%;transform:translateY(-50%);width:16px;height:16px;border-radius:50%;background:var(--panel);border:1px solid var(--line);display:grid;place-items:center;color:var(--ink-3);z-index:1}
+.lp-arrow svg{width:10px;height:10px}
+@media (max-width:960px){.sb-keys span:not(.kbd){display:none}.sb-keys{justify-content:center;padding:0}.sb-keys .kbd{margin:0}.sb-grp+.sb-grp{margin-top:10px;padding-top:10px;border-top:1px solid var(--sb-line)}}
+@media (max-width:720px){.loop{grid-template-columns:1fr 1fr}.lp:nth-child(odd){border-left:0}.lp:nth-child(n+3){border-top:1px solid var(--line)}.lp:last-child{grid-column:1/-1}.lp-arrow{display:none}.keys-b{grid-template-columns:1fr}.home-h h1{font-size:28px}}
+
 /* responsive */
 @media (max-width:1240px){
   .inbox{grid-template-columns:320px minmax(0,1fr)}
@@ -1031,66 +1198,232 @@ textarea.inp{height:auto;min-height:84px;padding:8px 10px;resize:vertical;line-h
 <div id="landing">
   <nav class="lnav" id="lnav" aria-label="Primary">
     <a class="logo" href="#/" style="text-decoration:none"><span class="logo-mark"><i data-ic="cue" data-c="#fff" data-s="13"></i></span>Cue</a>
-    <div class="lnav-links"><a href="#how" data-scroll>How it works</a><a href="#principles" data-scroll>Principles</a><a href="#integrations-l" data-scroll>Integrations</a></div>
-    <a class="btn dark" href="#/inbox">Open workspace <i data-ic="arrowR" data-s="14"></i></a>
+    <div class="lnav-links"><a href="#how" data-scroll>The loop</a><a href="#act-grow" data-scroll>Growth</a><a href="#act-agents" data-scroll>Agents</a><a href="#principles" data-scroll>Principles</a><a href="#faq" data-scroll>FAQ</a></div>
+    <a class="btn dark" href="#/home">Open workspace <i data-ic="arrowR" data-s="14"></i></a>
   </nav>
 
-  <header style="position:relative">
+  <header class="l-hero-wrap">
     <div class="grid-bg"></div>
     <div class="hero">
       <div>
-        <span class="eyebrow reveal">Customer problems → verified resolution</span>
-        <h1 class="reveal" style="animation-delay:.08s">Customer problems in.<br><em>Verified fixes</em> out.</h1>
-        <p class="lead reveal" style="animation-delay:.16s">Cue brings customer conversations into the engineering workflow. Collect reports, investigate problems, review proposed changes and verify fixes before closing the loop.</p>
+        <span class="eyebrow reveal">Customer problems → verified fixes → growth</span>
+        <h1 class="reveal" style="animation-delay:.08s">Your customers already told you.<br><em>That’s not the same as fixed.</em></h1>
+        <p class="lead reveal" style="animation-delay:.16s">Cue turns every report, whether it comes from X, chat or email, into one investigated issue, a change you approve and a reply the customer can trust. Then it finds the people still asking for that fix.</p>
         <div class="hero-ctas reveal" style="animation-delay:.24s">
-          <a class="btn primary lg" href="#/inbox">Open Cue workspace <i data-ic="arrowR" data-s="15"></i></a>
-          <a class="btn lg" href="#how" data-scroll>See how it works <i data-ic="arrowD" data-s="15"></i></a>
+          <a class="btn primary lg" href="#/home">Open the workspace <i data-ic="arrowR" data-s="15"></i></a>
+          <a class="btn lg" href="#how" data-scroll>Follow one report <i data-ic="arrowD" data-s="15"></i></a>
         </div>
-        <div class="reveal" style="animation-delay:.32s;margin-top:28px;display:flex;gap:18px;color:var(--ink-3);font:500 11.5px var(--mono)">
-          <span>● one issue · many voices</span><span>● 0 deploys without approval</span><span>● verified, not assumed</span>
-        </div>
+        <ul class="l-proof reveal" style="animation-delay:.32s">
+          <li><b>3 → 1</b><span>reports become one issue and one run</span></li>
+          <li><b>0</b><span>deploys without a person approving</span></li>
+          <li><b>1 rule</b><span>resolved means verified on the deployed build</span></li>
+        </ul>
       </div>
-      <div class="ticker reveal" style="animation-delay:.2s" aria-label="Incoming reports, live">
-        <div class="ticker-head"><span>Incoming · Bloom</span><span class="live"><i class="pulse"></i>Live</span></div>
-        <div class="ticker-list" id="ticker"></div>
+      <div class="l-hero-vis reveal" style="animation-delay:.2s">
+        <div class="ticker" aria-label="Incoming reports, live">
+          <div class="ticker-head"><span>Incoming · Bloom</span><span class="live"><i class="pulse"></i>Live</span></div>
+          <div class="ticker-list" id="ticker"></div>
+        </div>
+        <div class="l-float l-float-a"><i data-ic="link" data-s="13"></i><span><b>3 reports</b> linked to ISS-14</span></div>
+        <div class="l-float l-float-b"><i data-ic="shield" data-s="13"></i><span>Waiting for <b>your approval</b></span></div>
       </div>
     </div>
+    <a class="l-scrollcue" href="#how" data-scroll><span></span>Scroll to follow a report</a>
   </header>
 
-  <section class="section" id="how">
-    <div class="sec-label">01 — How it works</div>
-    <h2>Own the problem from <em>report to resolution</em>.</h2>
-    <p class="sub">Keep customer conversations, investigation evidence and engineering decisions in one place.</p>
-    <div class="principles">
-      <div><span class="pn">01</span><h4>Collect</h4><p>Receive customer reports through connected channels, with context and attachments.</p></div>
-      <div><span class="pn">02</span><h4>Investigate</h4><p>Group matching complaints, reproduce bugs and gather evidence.</p></div>
-      <div><span class="pn">03</span><h4>Review</h4><p>Inspect proposed changes and tests, then approve the exact commit.</p></div>
-      <div><span class="pn">04</span><h4>Verify</h4><p>Check the deployed fix and prepare an update for the customer.</p></div>
-    </div>
-  </section>
-
-  <section class="section" id="principles" style="padding-top:40px">
-    <div class="sec-label">02 — Principles</div>
-    <h2>Built for teams who’d rather <em>show</em> than assume.</h2>
-    <div class="principles">
-      <div><span class="pn">01</span><h4>Evidence over guesses</h4><p>Every stage links to the log, request or test that proves it.</p></div>
-      <div><span class="pn">02</span><h4>One issue, many voices</h4><p>Matching complaints join one issue and share one engineering run.</p></div>
-      <div><span class="pn">03</span><h4>Humans approve</h4><p>Agents propose. People review the exact commit before anything deploys.</p></div>
-      <div><span class="pn">04</span><h4>Verification ≠ approval</h4><p>Resolved means the customer’s scenario passed on the deployed build.</p></div>
-    </div>
-  </section>
-
-  <section class="section" id="integrations-l" style="padding-top:40px;padding-bottom:20px">
-    <div class="sec-label">03 — Where problems come from, where fixes go</div>
+  <section class="l-strip" aria-label="Where problems come from and where fixes go">
+    <div class="l-strip-h">Reports come in from where customers are. Fixes go out through the tools you already use.</div>
     <div class="marquee"><div class="marquee-track" id="marquee"></div></div>
   </section>
 
-  <section class="final">
-    <span class="eyebrow">Customer support and engineering</span>
-    <h2 class="section" style="padding:0;font:400 clamp(36px,5vw,64px)/1.02 var(--serif);margin:18px auto 26px;max-width:760px">Close the loop on <em style="color:var(--accent)">every</em> customer problem.</h2>
-    <a class="btn primary lg" href="#/inbox">Open Cue workspace <i data-ic="arrowR" data-s="15"></i></a>
+  <section class="section" id="how">
+    <div class="sec-label">01 — The loop</div>
+    <h2>One broken upload. <em>Nine steps</em> from complaint to customer.</h2>
+    <p class="sub">Follow one story: a 3 MB photo that won’t upload. Each step is a screen in Cue, and each one leaves evidence behind.</p>
+    <div class="story" id="story">
+      <div class="rail" id="rail" aria-label="Story chapters"></div>
+      <div class="chapters">
+        <article class="chapter" data-i="0"><span class="num">01 · ACT I — FIX</span><h3>A customer hits a wall.</h3><p>Maya picks a 3 MB photo. Bloom promises up to 5 MB. Upload stalls, then fails with a message that explains nothing.</p><div class="meta"><span>Bloom · web</span><span>3.1 MB HEIC → JPG</span></div></article>
+        <article class="chapter" data-i="1"><span class="num">02</span><h3>They tell you, wherever they are.</h3><p>One customer posts on X, another uses in-app chat, a third sends an email. Cue captures each one with its context and attachments.</p><div class="meta"><span>X</span><span>In-app chat</span><span>Email</span></div></article>
+        <article class="chapter" data-i="2"><span class="num">03</span><h3>Cue sees one problem, not three.</h3><p>Matching complaints join one issue with one priority and one investigation, while every customer keeps their own thread.</p><div class="meta"><span>ISS-14</span><span>P1</span><span>1 run for 3 reports</span></div></article>
+        <article class="chapter" data-i="3"><span class="num">04</span><h3>Reproduce before you guess.</h3><p>The engineering agent reproduces the report in a sandbox. HTTP 413 at 3 MB, where the expected response was 201. Now it’s a fact.</p><div class="meta"><span>sandbox</span><span>413 ≠ 201</span></div></article>
+        <article class="chapter" data-i="4"><span class="num">05</span><h3>Codex writes the fix.</h3><p>The root cause is a 2 MB server limit behind a 5 MB promise. The change is one line, written on its own branch with tests attached.</p><div class="meta"><span>limits.mjs:2</span><span>+1 −1</span><span>3 tests</span></div></article>
+        <article class="chapter" data-i="5"><span class="num">06</span><h3>Nothing ships without you.</h3><p>You review the exact commit, with its diff, test results before and after, and the PR. Approving deploys to demo. It doesn’t close the issue.</p><div class="meta"><span>commit 5c1e9b7</span><span>human approval</span></div></article>
+        <article class="chapter" data-i="6"><span class="num">07</span><h3>Verified. Then everyone hears back.</h3><p>Cue re-runs Maya’s exact scenario on the deployed build. Only then does the issue resolve, and each customer gets a reply in the channel they used.</p><div class="meta"><span>201 Created · 384 ms</span><span>3 replies</span></div></article>
+        <article class="chapter" data-i="7"><span class="num">08 · ACT II — GROW</span><h3>A verified fix is a reason to talk.</h3><p>Growth looks for people asking for exactly what you just fixed and drafts replies that point only at verified capabilities. A person reviews every draft, and a person posts it.</p><div class="meta"><span>explicit asks only</span><span>reviewed</span><span>posted by a person</span></div></article>
+        <article class="chapter" data-i="8"><span class="num">09 · ACT III — AGENTS</span><h3>Agents keep the loop honest.</h3><p>Ask an agent from Cue or Slack. Questions are answered without starting work. A repeated instruction joins the work already in progress, and approvals stay in review.</p><div class="meta"><span>@Cue engineering</span><span>no duplicate runs</span></div></article>
+      </div>
+      <div class="stage-wrap">
+        <div class="stage">
+          <div class="stage-label"><b id="stage-n">01</b><span id="stage-t">Bloom · upload</span></div>
+          <!-- 1 -->
+          <div class="scene"><div class="mock bloom-mock"><div class="bh">Add a memory <span style="font:500 12px var(--sans);color:#5B6A60">Up to 5 MB</span></div><div class="bloom-drop"><div class="bloom-thumb"></div><div class="bloom-file"><b>lisbon-tram.jpg</b>3.1 MB · uploading…<div class="bloom-bar"><i></i></div></div></div><div class="bloom-err"><i data-ic="alert" data-s="15"></i>Couldn’t upload your photo. Please try again.</div><div class="bloom-note">Maya Chen · iPhone 15 · 14:02</div></div></div>
+          <!-- 2 -->
+          <div class="scene"><div style="position:relative;width:100%;height:100%">
+            <div class="fly f1"><div class="fh"><span class="l-chip-ic x"><i data-ic="xlogo" data-s="10" data-c="#fff"></i></span><b>Maya Chen</b>@mayac · X</div>every photo from my phone gets rejected 😩 @bloomapp</div>
+            <div class="fly f2"><div class="fh"><span class="l-chip-ic"><i data-ic="chat" data-s="11"></i></span><b>Oliver Park</b>In-app chat</div>My 3 MB photo won’t upload, but your app says up to 5 MB.</div>
+            <div class="fly f3"><div class="fh"><span class="l-chip-ic"><i data-ic="mail" data-s="11"></i></span><b>Aisha Patel</b>Email</div>Upload returns <code>HTTP 413</code>. Screenshot attached.</div>
+          </div></div>
+          <!-- 3 -->
+          <div class="scene"><div style="position:relative;width:100%;height:100%;display:grid;place-items:center">
+            <div class="mini m1"><span class="l-chip-ic x"><i data-ic="xlogo" data-s="9" data-c="#fff"></i></span>Maya · rejected</div>
+            <div class="mini m2"><span class="l-chip-ic"><i data-ic="chat" data-s="10"></i></span>Oliver · 3 MB</div>
+            <div class="mini m3"><span class="l-chip-ic"><i data-ic="mail" data-s="10"></i></span>Aisha · 413</div>
+            <div class="mock issue-card"><div class="ic-top"><i data-ic="bug" data-s="13"></i>ISS-14 · opened just now</div><h4>Photos above 2 MB fail to upload</h4><div class="ic-row"><span class="chip outline">3 customer reports</span><span class="chip p1">P1</span><span class="chip outline">X · chat · email</span></div><div class="ic-foot"><span>1 run for 3 reports</span><span style="color:var(--accent)">No duplicate work</span></div></div>
+          </div></div>
+          <!-- 4 -->
+          <div class="scene"><div class="term"><div class="term-h"><i></i><i></i><i></i></div><div class="term-b">
+            <div><span class="c-mute">$</span> cue repro ISS-14 --env sandbox</div>
+            <div><span class="c-mute">→</span> POST /upload  lisbon-tram.jpg  3.1 MB</div>
+            <div><span class="c-red">✗ 413 Payload Too Large</span>   <span class="c-mute">expected 201</span></div>
+            <div><span class="c-mute">→</span> POST /upload  small.jpg  1.2 MB</div>
+            <div><span class="c-green">✓ 201 Created</span></div>
+            <div><span class="c-amber">● reproduced</span> <span class="c-mute">· limit between 1.2 and 3.1 MB</span></div>
+          </div></div></div>
+          <!-- 5 -->
+          <div class="scene"><div class="mock code"><div class="code-h"><i data-ic="file" data-s="13"></i>demo/bloom/limits.mjs<span class="r"><span class="codex-tag"><i data-ic="bot" data-s="12"></i>Codex</span></span></div><div class="code-b">
+            <div class="ln"><span class="g">1</span>// Server-side upload limit</div>
+            <div class="ln del"><span class="g">2</span>- export const MAX_UPLOAD_BYTES = 2 * 1024 * 1024;</div>
+            <div class="ln add"><span class="g">2</span>+ <span id="typed"></span><span class="caret"></span></div>
+            <div class="ln"><span class="g">3</span></div>
+          </div></div></div>
+          <!-- 6 -->
+          <div class="scene"><div style="position:relative"><div class="mock approve-mock">
+            <div class="row"><span>Change</span><b>Raise upload limit to 5 MB</b></div>
+            <div class="row"><span>Commit</span><code>5c1e9b7</code></div>
+            <div class="row"><span>Tests</span><span style="color:var(--accent)">3 passed · 0 failed</span></div>
+            <div class="row"><span>PR</span><span>#128 · cue/fix-upload-limit</span></div>
+            <div class="fake-btn"><span class="lbl l1"><i data-ic="check" data-s="15" data-c="#fff"></i>Approve &amp; deploy to demo</span><span class="lbl l2"><span class="fspin"></span>Deploying…</span><span class="lbl l3"><i data-ic="rocket" data-s="15" data-c="#fff"></i>Deployed · waiting for verification</span></div>
+            <div class="human-note"><i data-ic="shield" data-s="12"></i>You are approving exactly this commit.</div>
+          </div><svg class="cursor" viewBox="0 0 24 24"><path d="M4 2l16 9-7 2-3 7z" fill="#14181A" stroke="#fff" stroke-width="1.5"/></svg></div></div>
+          <!-- 7 -->
+          <div class="scene"><div class="verify-stack">
+            <div class="vrow"><span class="v-ic"><i data-ic="check" data-s="14" data-c="#fff"></i></span><div><b style="font-size:13.5px">Customer scenario verified</b><div style="font:12px var(--mono);color:var(--ink-2)">3.1 MB upload on demo → 201 Created · 384 ms</div></div></div>
+            <div class="reply"><span class="l-chip-ic x"><i data-ic="xlogo" data-s="10" data-c="#fff"></i></span><div>Fixed! Photos up to 5 MB upload now. Thanks for flagging it, Maya.<div class="r-meta">Reply on X · posted by Avichal</div></div></div>
+            <div class="reply"><span class="l-chip-ic"><i data-ic="chat" data-s="11"></i></span><div>Good news, Oliver: your 3 MB photo will upload now.<div class="r-meta">In-app chat · delivered</div></div></div>
+            <div class="reply"><span class="l-chip-ic"><i data-ic="mail" data-s="11"></i></span><div>Hi Aisha, the 413 is fixed and verified on the live build.<div class="r-meta">Email · sent</div></div></div>
+          </div></div>
+          <!-- 8 -->
+          <div class="scene"><div class="l-grow">
+            <div class="l-xpost"><div class="fh"><span class="av sm" style="background:#3563C9">ML</span><b>Marcus Lee</b><span>@marcus_builds · 2h</span><span class="l-chip-ic x" style="margin-left:auto"><i data-ic="xlogo" data-s="10" data-c="#fff"></i></span></div>any photo journal that doesn’t choke on full-res iPhone photos? mine rejects everything over 2 MB</div>
+            <div class="l-cap"><i data-ic="shield" data-s="14"></i><div><b>Verified capability</b> · Photos up to 5 MB upload<small>bloom@1.4.3 · acceptance check passed · just now</small></div></div>
+            <div class="l-draft"><div class="l-draft-h"><span>Draft reply</span><span class="chip ok">Approved by Holly</span></div>Bloom takes photos up to 5 MB, and we checked it on today’s build. Your iPhone shots should go straight in.<div class="l-draft-f"><span>Avichal posts it from @bloomapp</span><span>draft #9e21</span></div></div>
+          </div></div>
+          <!-- 9 -->
+          <div class="scene"><div class="l-slack">
+            <div class="l-slack-h"><i data-ic="slack" data-s="14"></i>#bloom-eng</div>
+            <div class="l-msg"><span class="av sm" style="background:#1E7A53">AV</span><div><b>Avichal</b> <small>14:31</small><p>@Cue engineering status ISS-14</p></div></div>
+            <div class="l-msg"><span class="av sm l-bot"><i data-ic="bot" data-s="12"></i></span><div><b>Cue · Engineering</b> <small>14:31</small><p>ISS-14 is resolved. The fix <code>5c1e9b7</code> was verified on demo, and all 3 customers were updated.</p><span class="l-act">Question · no task created</span></div></div>
+            <div class="l-msg"><span class="av sm" style="background:#1E7A53">AV</span><div><b>Avichal</b> <small>14:32</small><p>@Cue engineering investigate ISS-14</p></div></div>
+            <div class="l-msg"><span class="av sm l-bot"><i data-ic="bot" data-s="12"></i></span><div><b>Cue · Engineering</b> <small>14:32</small><p>That work already exists: T-30 is verified. I didn’t start a second run.</p><span class="l-act att">Attached to T-30 · no duplicate</span></div></div>
+          </div></div>
+        </div>
+      </div>
+    </div>
   </section>
-  <footer class="lfoot"><span>Cue</span><span>Customer problems to verified resolution</span></footer>
+
+  <section class="section l-act-sec" id="act-grow">
+    <div class="sec-label">02 — Growth</div>
+    <div class="l-two">
+      <div>
+        <h2>The fix becomes <em>the pitch</em>.</h2>
+        <p class="sub">Growth finds people who are explicitly asking for something Bloom does, checks that the capability is verified, and drafts a reply. People handle everything after that.</p>
+        <ul class="l-checks">
+          <li><i data-ic="check" data-s="14"></i><span><b>Explicit asks only.</b> Complaints about other apps and vague posts are dismissed.</span></li>
+          <li><i data-ic="check" data-s="14"></i><span><b>Verified capabilities only.</b> No claim goes out without a passing acceptance check.</span></li>
+          <li><i data-ic="check" data-s="14"></i><span><b>Reviewed, then posted by a person.</b> Approval isn’t publication. You record the live URL.</span></li>
+          <li><i data-ic="check" data-s="14"></i><span><b>Honest results.</b> Controlled test traffic never counts toward the funnel.</span></li>
+        </ul>
+        <a class="btn lg" href="#/growth">Open Growth <i data-ic="arrowR" data-s="15"></i></a>
+      </div>
+      <div class="l-frame" aria-hidden="true">
+        <div class="l-frame-h"><i></i><i></i><i></i><span>Growth · Opportunities</span></div>
+        <div class="l-frame-b">
+          <div class="l-steps"><span class="d">Discovered</span><span class="d">Qualified</span><span class="d">Drafted</span><span class="d">In review</span><span class="on">Approved</span><span>Published</span></div>
+          <div class="l-q">“is there a journal app where you can actually search old captions? scrolling back 3 years to find one photo is killing me”<small>@rinawrites · X recent search · 38m</small></div>
+          <div class="l-cap"><i data-ic="shield" data-s="14"></i><div><b>Find older memories by caption</b> · Verified<small>bloom@1.4.2 · checked by Ganesh · 20h ago</small></div></div>
+          <div class="l-funnel"><div><b>12</b><span>touches</span></div><div><b>5</b><span>clicks</span></div><div><b>2</b><span>signups</span></div><div><b>1</b><span>activated</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section l-act-sec" id="act-agents">
+    <div class="sec-label">03 — Agents</div>
+    <div class="l-two rev">
+      <div>
+        <h2>Four agents. <em>Each knows its limits.</em></h2>
+        <p class="sub">Every agent is a named role with a purpose, a list of what it can and can’t do, and its own health status. Ask it anything and it will tell you what it’s doing, and what it won’t do.</p>
+        <ul class="l-checks">
+          <li><i data-ic="check" data-s="14"></i><span><b>Questions don’t start jobs.</b> A status check stays a status check.</span></li>
+          <li><i data-ic="check" data-s="14"></i><span><b>No duplicate work.</b> Repeated instructions attach to the task already running.</span></li>
+          <li><i data-ic="check" data-s="14"></i><span><b>Chat can’t approve.</b> Approvals happen in review, on the exact commit or draft.</span></li>
+          <li><i data-ic="check" data-s="14"></i><span><b>Health ≠ progress.</b> A connected agent can still have a failing task, and an idle one never looks busy.</span></li>
+        </ul>
+        <a class="btn lg" href="#/agents">Meet the agents <i data-ic="arrowR" data-s="15"></i></a>
+      </div>
+      <div class="l-agents" aria-hidden="true">
+        <div class="l-agent"><span class="l-ag-ic x"><i data-ic="xlogo" data-s="14" data-c="#fff"></i></span><div><b>X</b><small>Collects @bloomapp mentions</small></div><span class="chip run">1 retrying</span></div>
+        <div class="l-agent"><span class="l-ag-ic reddit"><i data-ic="reddit" data-s="15"></i></span><div><b>Reddit</b><small>Captures notifications and comments</small></div><span class="chip fail">1 failed</span></div>
+        <div class="l-agent"><span class="l-ag-ic growth"><i data-ic="trend" data-s="15"></i></span><div><b>Growth</b><small>Matches asks to verified features</small></div><span class="chip warn">2 waiting</span></div>
+        <div class="l-agent"><span class="l-ag-ic eng"><i data-ic="bot" data-s="15"></i></span><div><b>Engineering</b><small>Investigates, delegates to Codex</small></div><span class="chip outline">idle</span></div>
+        <div class="l-agent-note"><i data-ic="lock" data-s="13"></i>Can’t deploy without approval · can’t mark resolved before verification</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="principles">
+    <div class="sec-label">04 — Principles</div>
+    <h2>Four rules Cue <em>won’t break</em>.</h2>
+    <div class="principles">
+      <div><span class="pn">01</span><h4>Evidence over guesses</h4><p>Every stage links to the log, request or test that proves it.</p></div>
+      <div><span class="pn">02</span><h4>One issue, many voices</h4><p>Matching complaints join one issue and share one engineering run.</p></div>
+      <div><span class="pn">03</span><h4>Humans approve</h4><p>Agents propose. People review the exact commit or draft before anything ships or posts.</p></div>
+      <div><span class="pn">04</span><h4>Verified ≠ approved</h4><p>Resolved means the customer’s scenario passed on the deployed build.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="workspace">
+    <div class="sec-label">05 — The workspace</div>
+    <h2>Everything the loop needs, <em>in one place</em>.</h2>
+    <div class="l-tiles">
+      <a class="l-tile" href="#/home"><span class="l-tile-ic"><i data-ic="home" data-s="16"></i></span><b>Home</b><p>What’s waiting on a person, what’s stuck and what’s running.</p><span class="kbd">G H</span></a>
+      <a class="l-tile" href="#/inbox"><span class="l-tile-ic"><i data-ic="inbox" data-s="16"></i></span><b>Inbox</b><p>Every report with its channel, context and attachments, plus a reply that’s ready.</p><span class="kbd">G I</span></a>
+      <a class="l-tile" href="#/issues/ISS-14"><span class="l-tile-ic"><i data-ic="bug" data-s="16"></i></span><b>Issues</b><p>One issue per problem, with impact, evidence, the run and the stepper to resolution.</p><span class="kbd">G S</span></a>
+      <a class="l-tile" href="#/features"><span class="l-tile-ic v"><i data-ic="bulb" data-s="16"></i></span><b>Feature requests</b><p>Requests grouped by need, with a spec you approve before anything gets built.</p><span class="kbd">G F</span></a>
+      <a class="l-tile" href="#/growth"><span class="l-tile-ic"><i data-ic="trend" data-s="16"></i></span><b>Growth</b><p>Opportunities, campaigns and honest results, each tied to a verified capability.</p><span class="kbd">G G</span></a>
+      <a class="l-tile" href="#/agents"><span class="l-tile-ic"><i data-ic="bot" data-s="16"></i></span><b>Agents</b><p>Talk to the agents, see their tasks and read their history, task by task.</p><span class="kbd">G A</span></a>
+    </div>
+  </section>
+
+  <section class="section" id="faq">
+    <div class="sec-label">06 — Questions</div>
+    <div class="l-two faq-two">
+      <h2>Straight <em>answers</em>.</h2>
+      <div class="l-faq">
+        <details open><summary>Does Cue deploy anything on its own?<i data-ic="plus" data-s="16"></i></summary><p>No. Agents propose changes, and a person approves the exact commit. Approval deploys to demo, and the issue resolves only after the customer’s scenario passes there.</p></details>
+        <details><summary>What happens when three people report the same bug?<i data-ic="plus" data-s="16"></i></summary><p>The reports join one issue and share one investigation. Each customer still gets their own reply, in the channel they used.</p></details>
+        <details><summary>Will Growth post replies for us?<i data-ic="plus" data-s="16"></i></summary><p>No. Growth drafts replies that cite only verified capabilities. A person reviews the draft, another person posts it from the brand account, and the live URL is recorded.</p></details>
+        <details><summary>Can I talk to the agents from Slack?<i data-ic="plus" data-s="16"></i></summary><p>Yes, for example <code>@Cue engineering status ISS-14</code>. Questions never start work, repeated instructions attach to the existing task, and approvals stay in review controls.</p></details>
+        <details><summary>Which channels does it connect to?<i data-ic="plus" data-s="16"></i></summary><p>The in-app widget, email, X (operator capture and mention collection), Reddit notifications, Slack, GitHub and the Codex coding agent.</p></details>
+        <details><summary>How do I know an agent is actually working?<i data-ic="plus" data-s="16"></i></summary><p>Service health and task state are shown separately. Every task has a state, an owner, a next step and a full event history in Agent activity.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final">
+    <div class="grid-bg"></div>
+    <span class="eyebrow">Customer support × engineering × growth</span>
+    <h2>Find out what your customers are <em>still waiting on</em>.</h2>
+    <div class="hero-ctas" style="justify-content:center"><a class="btn primary lg" href="#/home">Open the workspace <i data-ic="arrowR" data-s="15"></i></a><a class="btn lg" href="#how" data-scroll>Replay the story</a></div>
+    <p class="l-note">Sample workspace · no sign-up · every sample is labeled</p>
+  </section>
+  <footer class="lfoot">
+    <div class="lf-brand"><span class="logo"><span class="logo-mark"><i data-ic="cue" data-c="#fff" data-s="13"></i></span>Cue</span><p>Customer problems to verified resolution, and the growth that follows.</p></div>
+    <div class="lf-col"><b>Product</b><a href="#/inbox">Inbox</a><a href="#/issues">Issues</a><a href="#/growth">Growth</a><a href="#/agents">Agents</a></div>
+    <div class="lf-col"><b>Story</b><a href="#how" data-scroll>The loop</a><a href="#principles" data-scroll>Principles</a><a href="#faq" data-scroll>FAQ</a></div>
+    <div class="lf-col"><b>Workspace</b><a href="#/integrations">Integrations</a><a href="#/settings">Settings</a><a href="bloom.html">Bloom demo app ↗</a></div>
+  </footer>
 </div>
 
 <!-- ================= APP ================= -->
@@ -1100,6 +1433,7 @@ textarea.inp{height:auto;min-height:84px;padding:8px 10px;resize:vertical;line-h
   <main class="main" id="main" tabindex="-1"></main>
 </div>
 
+<div class="demo" id="demo"></div>
 <div class="toasts" id="toasts" role="status" aria-live="polite"></div>
 
 <div id="overlay"></div>
@@ -1368,7 +1702,7 @@ function tick() {
 function startTicker() { if (tickTimer) return; for (let i = 0; i < 4; i++) tick(); tickTimer = setInterval(tick, 2400); }
 function stopTicker() { clearInterval(tickTimer); tickTimer = null; }
 
-const SCENE_T = ['Bloom · upload', 'Channels · capture', 'Cue · linking', 'Sandbox · reproduce', 'Codex · fix', 'Review · approve', 'Demo · verify'];
+const SCENE_T = ['Bloom · upload', 'Channels · capture', 'Cue · linking', 'Sandbox · reproduce', 'Codex · fix', 'Review · approve', 'Demo · verify', 'Growth · reply', 'Agents · Slack'];
 let typeTimer = null, chapterIdx = -1, storyInline = false;
 function typeDiff() {
   const el = $('#typed'); if (!el) return;
@@ -1389,12 +1723,12 @@ function setChapter(i) {
   $('#stage-t').textContent = SCENE_T[i];
   if (i === 4) typeDiff();
 }
-function initLanding() {
-  const rail = $('#rail');
-  rail.innerHTML = SCENE_T.map((_, i) => `${i ? '<div class="seg"><i></i></div>' : ''}<button aria-label="Chapter ${i + 1}" data-ch="${i}">${pad(i + 1)}</button>`).join('');
+// Story + scroll chrome live apart from initLanding so the live bridge can override channels without losing the story.
+function initStory() {
+  const rail = $('#rail'); if (!rail) return;
+  rail.innerHTML = SCENE_T.map((_, i) => `${i ? '<div class="seg"><i></i></div>' : ''}<button aria-label="Chapter ${i + 1}: ${SCENE_T[i]}" data-ch="${i}">${pad(i + 1)}</button>`).join('');
   rail.addEventListener('click', e => { const b = e.target.closest('button'); if (b) $$('.chapter')[+b.dataset.ch].scrollIntoView({ behavior: REDUCE ? 'auto' : 'smooth', block: 'center' }); });
-  const mq = matchMedia('(max-width: 960px)');
-  storyInline = REDUCE || mq.matches;
+  storyInline = REDUCE || matchMedia('(max-width: 960px)').matches;
   if (storyInline) {
     $('#story').classList.add('inline');
     $$('.scene').forEach((s, j) => $$('.chapter')[j].appendChild(s));
@@ -1405,15 +1739,17 @@ function initLanding() {
   $$('.chapter').forEach(c => io.observe(c));
   setChapter(0);
   if (REDUCE) { $$('.scene').forEach(s => s.classList.add('on')); typeDiff(); }
-  const items = [['widget', 'In-app widget'], ['github', 'GitHub'], ['bot', 'Codex'], ['slack', 'Slack'], ['mail', 'Email'], ['xlogo', 'X · operator-assisted'], ['server', 'Demo deploys'], ['flask', 'Independent tests']];
-  const one = items.map(([i, n]) => `<span>${ic(i, 18)}${n}</span>`).join('');
-  $('#marquee').innerHTML = one + one;
   addEventListener('scroll', () => {
     if (S.sec) return;
     const h = document.documentElement;
     $('#progress').style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight) * 100) + '%';
     $('#lnav').classList.toggle('scrolled', h.scrollTop > 8);
   }, { passive: true });
+}
+function initLanding() {
+  const items = [['widget', 'In-app widget'], ['github', 'GitHub'], ['bot', 'Codex'], ['slack', 'Slack'], ['mail', 'Email'], ['xlogo', 'X · operator-assisted'], ['reddit', 'Reddit'], ['server', 'Demo deploys'], ['flask', 'Independent tests']];
+  const one = items.map(([i, n]) => `<span>${ic(i, 18)}${n}</span>`).join('');
+  $('#marquee').innerHTML = one + one;
   document.addEventListener('click', e => {
     const a = e.target.closest('[data-scroll]'); if (!a) return;
     e.preventDefault();
@@ -1464,6 +1800,9 @@ function route() {
 addEventListener('hashchange', route);
 
 /* ------------------------------------------------------------------ shell */
+const NAV_GROUPS = [['', ['home', 'inbox']], ['Resolve', ['issues', 'features']], ['Grow', ['growth']], ['Agents', ['agents', 'agent']], ['Workspace', ['knowledge', 'integrations', 'settings']]];
+const GO_KEYS = { h: 'home', i: 'inbox', s: 'issues', f: 'features', g: 'growth', a: 'agents', v: 'agent', n: 'integrations', ',': 'settings' };
+const KEY_OF = Object.fromEntries(Object.entries(GO_KEYS).map(([k, v]) => [v, k]));
 function renderSidebar() {
   const open = S.cases.filter(c => caseStatus(c) !== 'resolved').length;
   const issuesOpen = Object.values(S.issues).filter(i => i.status !== 'resolved').length;
@@ -1484,9 +1823,8 @@ function renderSidebar() {
   }
   $('#sb').innerHTML = `
     <a class="sb-top" href="#/" aria-label="Cue home"><span class="logo-mark">${ic('cue', 13, '#111513')}</span><span>Cue</span></a>
-    <div class="sb-sec">Workspace</div>
-    ${nav.map(([k, l, i, n]) => `<a class="nav ${S.sec === k ? 'on' : ''}" href="#/${k}" ${S.sec === k ? 'aria-current="page"' : ''} title="${l}">${ic(i, 16)}<span class="lbl">${l}</span>${n !== '' ? `<span class="cnt">${n}</span>` : ''}</a>`).join('')}
-    <div class="sb-foot">${chip}<div class="sb-ws">${ic('leaf', 14, '#6fcf97')}<span>Cue · Bloom</span></div></div>`;
+    ${NAV_GROUPS.map(([g, keys]) => `<div class="sb-grp">${g ? `<div class="sb-sec">${g}</div>` : ''}${keys.map(k => nav.find(x => x[0] === k)).filter(Boolean).map(([k, l, i, n]) => `<a class="nav ${S.sec === k ? 'on' : ''}" href="#/${k}" ${S.sec === k ? 'aria-current="page"' : ''} title="${l}${KEY_OF[k] ? ' · G ' + KEY_OF[k].toUpperCase() : ''}">${ic(i, 16)}<span class="lbl">${l}</span>${n !== '' ? `<span class="cnt">${n}</span>` : ''}</a>`).join('')}</div>`).join('')}
+    <div class="sb-foot">${chip}<button class="sb-keys" data-act="keys" aria-label="Keyboard shortcuts">${ic('zap', 13)}<span>Shortcuts</span><span class="kbd">?</span></button><div class="sb-ws">${ic('leaf', 14, '#6fcf97')}<span>Cue · Bloom</span></div></div>`;
 }
 function renderTop() {
   const n = approvals().length;
@@ -2586,7 +2924,11 @@ function homePage() {
   const stuck = pick(v => ['failed', 'retrying'].includes(v.state) || (v.state === 'blocked' && !v.person));
   const going = pick(v => ['running', 'queued', 'canceling'].includes(v.state));
   const done = pick(v => v.state === 'completed').slice(0, 3);
-  return `<div class="page enter" style="max-width:1240px"><div class="page-h"><div><h1>Home</h1><p>What needs a decision, what’s stuck and what’s running, across every agent.</p></div></div>
+  const hr = new Date().getHours();
+  const hello = hr < 12 ? 'Good morning' : hr < 18 ? 'Good afternoon' : 'Good evening';
+  const summary = decide.length ? `${decide.length} ${decide.length === 1 ? 'thing needs' : 'things need'} your decision.` : stuck.length ? 'Nothing needs a decision. Some work is stuck.' : 'Nothing needs you right now.';
+  return `<div class="page enter" style="max-width:1240px"><div class="page-h home-h"><div><span class="home-date">${new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' })}</span><h1>${hello}, ${esc(OP.short)}.</h1><p>${summary} Here’s where every customer problem is in the loop.</p></div></div>
+    ${loopStrip()}
     <div class="home-grid"><div>
       ${attSec('Waiting on a person', 'warn', 'hourglass', decide, 'No decisions waiting.')}
       ${attSec('Blocked or failing', 'fail', 'alert', stuck, 'Nothing blocked or failing.')}
@@ -2596,6 +2938,22 @@ function homePage() {
       <div class="att" style="margin:0"><div class="att-h">${ic('bot', 15)}Agents<a href="#/agents" style="margin-left:auto;font-weight:500;font-size:12px;color:var(--ink-2)">Open →</a></div>${S.ag.agents.map(a => { const h = agHealth(a); const c = agCounts(a); const open = c.run + c.retry + c.q + c.blk + c.fail; return `<a class="hl-row" href="#/agents/${a.id}">${agIc(a)}<div style="min-width:0"><b>${esc(a.name)}</b><small>${hDot(h.st)}${esc(h.label)}</small></div><span class="r">${open ? open + ' open' : 'idle'}</span></a>`; }).join('')}</div>
       <div class="callout" style="background:var(--sunken);color:var(--ink-2)">${ic('shield', 14)}Approval isn’t publication, and a PR isn’t a deployment. Each shows as its own step.</div>
     </div></div></div>`;
+}
+function loopStrip() {
+  const reported = S.cases.filter(c => caseStatus(c) !== 'resolved').length;
+  const rs = S.run.status;
+  const investigating = ['running', 'failed', 'rejected', 'deploying'].includes(rs) ? 1 : 0;
+  const awaiting = approvals().length;
+  const verified = Object.values(S.issues).filter(i => i.status === 'resolved').length;
+  const grown = S.growth ? S.growth.opps.filter(o => o.status === 'published' && !o.controlled).length : 0;
+  const cells = [
+    ['inbox', 'Reported', reported, reported === 1 ? 'open report' : 'open reports', '#/inbox', ''],
+    ['zap', 'Investigating', investigating, rs === 'failed' ? 'run needs attention' : investigating ? 'run in progress' : 'no run active', '#/issues', rs === 'failed' ? 'fail' : investigating ? 'run' : ''],
+    ['hourglass', 'Awaiting you', awaiting, awaiting === 1 ? 'approval' : 'approvals', '', awaiting ? 'warn' : ''],
+    ['check', 'Verified', verified, verified === 1 ? 'issue resolved' : 'issues resolved', '#/issues', verified ? 'ok' : ''],
+    ['trend', 'Grown', grown, grown === 1 ? 'reply published' : 'replies published', '#/growth', ''],
+  ];
+  return `<nav class="loop" aria-label="The loop">${cells.map(([i, l, n, sub, h, tone], j) => `${h ? `<a class="lp ${tone}" href="${h}">` : `<button class="lp ${tone}" data-act="approvals">`}<span class="lp-t">${ic(i, 13)}${l}</span><b>${n}</b><small>${sub}</small>${j < cells.length - 1 ? `<span class="lp-arrow">${ic('chevR', 14)}</span>` : ''}${h ? '</a>' : '</button>'}`).join('')}</nav>`;
 }
 /* ------------------------------------------------------------------ task activity */
 function taRows() {
@@ -2641,6 +2999,18 @@ const AGA = {
 
 /* ------------------------------------------------------------------ overlays */
 let lastFocus = null;
+function openKeys() {
+  lastFocus = document.activeElement;
+  const row = (keys, label) => `<div class="kr"><span>${label}</span><span class="kk">${keys.map(k => `<span class="kbd">${k}</span>`).join('')}</span></div>`;
+  const names = { home: 'Home', inbox: 'Inbox', issues: 'Issues', features: 'Feature requests', growth: 'Growth', agents: 'Agents', agent: 'Agent activity', integrations: 'Integrations', settings: 'Settings' };
+  $('#overlay').innerHTML = `<div class="scrim" data-act="close" style="opacity:1"></div><div class="palette keys" role="dialog" aria-modal="true" aria-label="Keyboard shortcuts" tabindex="-1">
+    <div class="keys-h"><b>Keyboard shortcuts</b><button class="btn ghost sm" data-act="close" aria-label="Close">${ic('x', 14)}</button></div>
+    <div class="keys-b"><div><h6>Go to</h6>${Object.entries(GO_KEYS).map(([k, v]) => row(['G', k.toUpperCase()], names[v])).join('')}</div>
+    <div><h6>Anywhere</h6>${row(['⌘', 'K'], 'Search and actions')}${row(['/'], 'Search')}${row(['?'], 'This list')}${row(['esc'], 'Close')}
+    <h6>Inbox</h6>${row(['J'], 'Next case')}${row(['K'], 'Previous case')}${row(['1', '2', '3'], 'Conversation · Investigation · Changes')}${row(['⌘', '↵'], 'Send reply')}
+    <h6>Agents</h6>${row(['↵'], 'Send message')}${row(['⇧', '↵'], 'New line')}</div></div></div>`;
+  $('.keys').focus();
+}
 function closeOverlays(instant) {
   const ov = $('#overlay');
   if (!ov.innerHTML) return;
@@ -2808,6 +3178,7 @@ function resetAll() {
 /* ------------------------------------------------------------------ actions */
 const A = {
   close: () => closeOverlays(),
+  keys: () => openKeys(),
   palette: openPalette,
   approvals: el => openApprovals(el),
   apprFix: () => { closeOverlays(true); S.pendingTab = 'changes'; S.tab = 'changes'; const id = curCase() && curCase().issue === 'ISS-14' ? S.sel : 'c1'; go('#/inbox/' + id); },
@@ -2872,6 +3243,7 @@ document.addEventListener('change', e => {
   if (e.target.id === 'g-url' && S.growth) { const o = gCur(); if (o && o.pub) o.pub.draftUrl = e.target.value; }
   if (e.target.id === 'xc-shot' && e.target.files[0]) { const fr = new FileReader(); fr.onload = () => { XC.shot = fr.result; $('.dr-b').innerHTML = captureBody(); }; fr.readAsDataURL(e.target.files[0]); }
 });
+let goPending = false, goTimer = null;
 document.addEventListener('keydown', e => {
   const typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName);
   if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); if (S.sec) openPalette(); return; }
@@ -2879,6 +3251,10 @@ document.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key === 'Enter' && document.activeElement.id === 'comp-ta') { e.preventDefault(); send(); return; }
   if (e.key === 'Enter' && !e.shiftKey && document.activeElement.id === 'ag-ta') { e.preventDefault(); agSend(S.ag.draft); return; }
   if (typing || !S.sec || $('#overlay').innerHTML) return;
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  if (goPending) { goPending = false; const k = GO_KEYS[e.key.toLowerCase()]; if (k) { e.preventDefault(); go('#/' + k); } return; }
+  if (e.key === 'g') { goPending = true; clearTimeout(goTimer); goTimer = setTimeout(() => (goPending = false), 1200); return; }
+  if (e.key === '?') { e.preventDefault(); openKeys(); return; }
   if (e.key === '/') { e.preventDefault(); openPalette(); return; }
   if (e.key === 'Enter' && document.activeElement.matches('[role="button"][data-act], tr[data-act]')) { document.activeElement.click(); return; }
   if (S.sec === 'inbox' && S.inboxState === 'populated' && (e.key === 'j' || e.key === 'k')) {
@@ -2894,6 +3270,7 @@ document.addEventListener('toggle', e => { const d = e.target; if (d.tagName ===
 /* ------------------------------------------------------------------ boot */
 hydrateIcons();
 initLanding();
+initStory();
 route();
 })();
 </script>

@@ -12,8 +12,7 @@ assert.equal(
 );
 assert.match(root.headers.get("content-type") || "", /text\/html/);
 const html = await root.text();
-assert.match(html, /Customer problems in\./);
-assert.match(html, /Verified fixes/);
+assert(html.includes("Your customers already told you."));
 console.log("PASS · Anonymous root serves the supplied Cue landing");
 
 function elements(
@@ -28,14 +27,19 @@ const nodes = elements(parse(html));
 const attr = (node: DefaultTreeAdapterTypes.Element, name: string) =>
   node.attrs.find((a) => a.name === name)?.value;
 const links = nodes.filter((n) => n.tagName === "a");
-assert.equal(links.filter((n) => attr(n, "href") === "/cue#/home").length, 3);
-for (const id of ["how", "principles", "integrations-l"]) {
+assert.equal(links.filter((n) => attr(n, "href") === "/cue#/home").length, 4);
+for (const id of ["how", "principles", "faq", "act-grow", "act-agents"]) {
   assert(nodes.some((n) => attr(n, "id") === id));
   assert(links.some((n) => attr(n, "href") === "#" + id));
 }
 assert(!nodes.some((n) => attr(n, "id") === "app"));
 assert(!html.includes("loadCue") && !html.includes("S.cases"));
 assert.match(html, /Illustrative reports/);
+const scripts = nodes.filter((n) => n.tagName === "script");
+assert.equal(scripts.length, 1);
+assert.equal(attr(scripts[0], "src"), "/cue-landing.js");
+assert.equal(scripts[0].childNodes.length, 0);
+assert.equal((await get("/cue-landing.js")).status, 200);
 console.log(
   "PASS · Workspace actions, section links and labeled examples are present; private app omitted",
 );
