@@ -1,4 +1,12 @@
-# Cue · neatHack 2026
+# Retired snapshot — use the canonical Cue repository
+
+Development and hackathon submission now use **[AvichalDwivedi2205/cue-b2c](https://github.com/AvichalDwivedi2205/cue-b2c)**. That repository is public and preserves the original development history, latest product source, tests, and refreshed Entire build evidence.
+
+This repository is an archived historical snapshot. Its nine original commits are not the full development history. Existing evidence links remain available; all new work and current submission references belong in the canonical repository.
+
+---
+
+# Cue · neatHack 2026 (historical snapshot)
 
 Cue helps consumer-app teams turn customer feedback into investigated, reviewed and independently verified product changes. Bloom is the reference photo-journal app.
 
